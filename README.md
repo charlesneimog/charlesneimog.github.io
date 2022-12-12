@@ -1,3 +1,1 @@
-# Charles K. Neimog
-
-This Repository is all the codes of my personal website.
+I will migrate my code for Github...
