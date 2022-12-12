@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>chip</title>
+
+    <!-- Generated javascript library includes -->
+    <script type="application/javascript" src="./chip.js"></script>
+    <style>
+      .widget { max-width: 900px; margin: auto; }
+      .row { width: 100%; margin-bottom: 10px; }
+      .col { display: inline-block; }
+      .title { width: 80%; margin: 0 auto; }
+      .transport { padding-left: 10px; }
+      .parameter-name { width: 35%; text-align: right; }
+      .parameter-slider { width: 45%; padding-left: 10px; }
+      .parameter-slider input { vertical-align: middle; width: 100%; }
+      .parameter-value { width: 10%; padding-left: 10px; text-align: left; }
+      .link { margin: 10px 10px 0 0; float: right; }
+      span { text-align: right; }
+    </style>
+
+    <script type="text/javascript">
+      var heavyModule = null;
+      var loader = null;
+
+      window.onload = function() {
+        chip_Module().then(loadedModule => {
+          heavyModule = loadedModule;
+          moduleLoaded();
+        });
+        document.getElementById("transportButton").style.visibility = "hidden";
+      }
+
+      function moduleLoaded() {
+        loader = new heavyModule.AudioLibLoader();
+        document.getElementById("transportButton").style.visibility = "visible";
+      }
+
+      function start() {
+        if(!loader.webAudioContext) {
+          loader.init({
+            // optional: set audio processing block size, default is 2048
+            blockSize: 2048,
+            // optional: provide a callback handler for [print] messages
+            printHook: onPrint,
+            // optional: provide a callback handler for [s {sendName} @hv_param] messages
+            sendHook: onFloatMessage,
+            // optional: pass an existing web audio context, otherwise a new one
+            // will be constructed.
+            webAudioContext: null
+          }).then(() => {
+            updateSlider_bitcrush(0.92);
+            updateSlider_flanger_depth(1.0);
+            updateSlider_flanger_fb(0.94);
+            updateSlider_flanger_speed(0.61);
+            updateSlider_noise_amount(0.54);
+            updateSlider_noise_attack(0.17);
+            updateSlider_noise_decay(0.56);
+            updateSlider_noise_sweep(0.36);
+            updateSlider_osc_amount(0.8);
+            updateSlider_osc_attack(0.0);
+            updateSlider_osc_decay(0.66);
+            updateSlider_osc_freq(0.3);
+            });
+        }
+        loader.start();
+      }
+
+      function stop() {
+        loader.stop();
+      }
+
+      function toggleTransport(element) {
+        (loader.isPlaying) ? stop() : start();
+      }
+
+      function onPrint(message) {
+        console.log(message);
+      }
+
+      function onFloatMessage(sendName, floatValue) {
+        console.log(sendName, floatValue);
+      }
+
+      // Generated Event Update Methods
+      function sendEvent_trigger() {
+        if(loader.webAudioWorklet) {
+          loader.sendEvent("trigger");
+        } else {
+          loader.audiolib.sendEvent("trigger");
+        }
+      }
+
+
+      // randomizer
+      function randomiseParameters() {
+        updateSlider_bitcrush(Math.random());
+
+        updateSlider_flanger_depth(Math.random());
+
+        updateSlider_flanger_fb(Math.random());
+
+        updateSlider_flanger_speed(Math.random());
+
+        updateSlider_noise_amount(Math.random());
+
+        updateSlider_noise_attack(Math.random());
+
+        updateSlider_noise_decay(Math.random());
+
+        updateSlider_noise_sweep(Math.random());
+
+        updateSlider_osc_amount(Math.random());
+
+        updateSlider_osc_attack(Math.random());
+
+        updateSlider_osc_decay(Math.random());
+
+        updateSlider_osc_freq(Math.random());
+
+      }
+      // Generated Parameter Update Methods
+      function updateSlider_bitcrush(value) {
+        document.getElementById("value_bitcrush").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_bitcrush").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("bitcrush", value);
+        } else {
+          loader.audiolib.setFloatParameter("bitcrush", value);
+        }
+      }
+
+      function updateSlider_flanger_depth(value) {
+        document.getElementById("value_flanger_depth").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_flanger_depth").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("flanger_depth", value);
+        } else {
+          loader.audiolib.setFloatParameter("flanger_depth", value);
+        }
+      }
+
+      function updateSlider_flanger_fb(value) {
+        document.getElementById("value_flanger_fb").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_flanger_fb").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("flanger_fb", value);
+        } else {
+          loader.audiolib.setFloatParameter("flanger_fb", value);
+        }
+      }
+
+      function updateSlider_flanger_speed(value) {
+        document.getElementById("value_flanger_speed").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_flanger_speed").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("flanger_speed", value);
+        } else {
+          loader.audiolib.setFloatParameter("flanger_speed", value);
+        }
+      }
+
+      function updateSlider_noise_amount(value) {
+        document.getElementById("value_noise_amount").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_noise_amount").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("noise_amount", value);
+        } else {
+          loader.audiolib.setFloatParameter("noise_amount", value);
+        }
+      }
+
+      function updateSlider_noise_attack(value) {
+        document.getElementById("value_noise_attack").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_noise_attack").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("noise_attack", value);
+        } else {
+          loader.audiolib.setFloatParameter("noise_attack", value);
+        }
+      }
+
+      function updateSlider_noise_decay(value) {
+        document.getElementById("value_noise_decay").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_noise_decay").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("noise_decay", value);
+        } else {
+          loader.audiolib.setFloatParameter("noise_decay", value);
+        }
+      }
+
+      function updateSlider_noise_sweep(value) {
+        document.getElementById("value_noise_sweep").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_noise_sweep").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("noise_sweep", value);
+        } else {
+          loader.audiolib.setFloatParameter("noise_sweep", value);
+        }
+      }
+
+      function updateSlider_osc_amount(value) {
+        document.getElementById("value_osc_amount").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_osc_amount").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("osc_amount", value);
+        } else {
+          loader.audiolib.setFloatParameter("osc_amount", value);
+        }
+      }
+
+      function updateSlider_osc_attack(value) {
+        document.getElementById("value_osc_attack").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_osc_attack").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("osc_attack", value);
+        } else {
+          loader.audiolib.setFloatParameter("osc_attack", value);
+        }
+      }
+
+      function updateSlider_osc_decay(value) {
+        document.getElementById("value_osc_decay").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_osc_decay").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("osc_decay", value);
+        } else {
+          loader.audiolib.setFloatParameter("osc_decay", value);
+        }
+      }
+
+      function updateSlider_osc_freq(value) {
+        document.getElementById("value_osc_freq").textContent = Number(value).toFixed(2);
+        document.getElementById("parameter_osc_freq").value = value;
+        if(loader.webAudioWorklet) {
+          loader.sendFloatParameterToWorklet("osc_freq", value);
+        } else {
+          loader.audiolib.setFloatParameter("osc_freq", value);
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+    <div class="widget">
+      <div class="row title">
+        <div class="col"><h2>chip</h2></div>
+        <div class="col transport">
+          <label>
+            start / stop
+            <input type="checkbox" id="transportButton" onchange="toggleTransport();">
+          </label>
+        </div>
+        <div>
+          <button style="padding: 10px;" type="button" id="randomiseButton" onclick="randomiseParameters();">Randomise</button>
+        </div>
+      </div>
+      <div class="row events">
+        <div class="col">
+          <button type="button" id="trigger_trigger" onclick="sendEvent_trigger();">trigger</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">bitcrush</div>
+        <div class="col parameter-slider">
+          <input id="parameter_bitcrush" type="range" min="0.0" max="1.0" step="0.01" value="0.92" onchange="updateSlider_bitcrush(value);" oninput="updateSlider_bitcrush(value)">
+        </div>
+        <div class="col parameter-value" id="value_bitcrush">0.92</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">flanger_depth</div>
+        <div class="col parameter-slider">
+          <input id="parameter_flanger_depth" type="range" min="0.0" max="1.0" step="0.01" value="1.0" onchange="updateSlider_flanger_depth(value);" oninput="updateSlider_flanger_depth(value)">
+        </div>
+        <div class="col parameter-value" id="value_flanger_depth">1.0</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">flanger_fb</div>
+        <div class="col parameter-slider">
+          <input id="parameter_flanger_fb" type="range" min="0.0" max="1.0" step="0.01" value="0.94" onchange="updateSlider_flanger_fb(value);" oninput="updateSlider_flanger_fb(value)">
+        </div>
+        <div class="col parameter-value" id="value_flanger_fb">0.94</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">flanger_speed</div>
+        <div class="col parameter-slider">
+          <input id="parameter_flanger_speed" type="range" min="0.0" max="1.0" step="0.01" value="0.61" onchange="updateSlider_flanger_speed(value);" oninput="updateSlider_flanger_speed(value)">
+        </div>
+        <div class="col parameter-value" id="value_flanger_speed">0.61</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">noise_amount</div>
+        <div class="col parameter-slider">
+          <input id="parameter_noise_amount" type="range" min="0.0" max="1.0" step="0.01" value="0.54" onchange="updateSlider_noise_amount(value);" oninput="updateSlider_noise_amount(value)">
+        </div>
+        <div class="col parameter-value" id="value_noise_amount">0.54</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">noise_attack</div>
+        <div class="col parameter-slider">
+          <input id="parameter_noise_attack" type="range" min="0.0" max="1.0" step="0.01" value="0.17" onchange="updateSlider_noise_attack(value);" oninput="updateSlider_noise_attack(value)">
+        </div>
+        <div class="col parameter-value" id="value_noise_attack">0.17</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">noise_decay</div>
+        <div class="col parameter-slider">
+          <input id="parameter_noise_decay" type="range" min="0.0" max="1.0" step="0.01" value="0.56" onchange="updateSlider_noise_decay(value);" oninput="updateSlider_noise_decay(value)">
+        </div>
+        <div class="col parameter-value" id="value_noise_decay">0.56</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">noise_sweep</div>
+        <div class="col parameter-slider">
+          <input id="parameter_noise_sweep" type="range" min="0.0" max="1.0" step="0.01" value="0.36" onchange="updateSlider_noise_sweep(value);" oninput="updateSlider_noise_sweep(value)">
+        </div>
+        <div class="col parameter-value" id="value_noise_sweep">0.36</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">osc_amount</div>
+        <div class="col parameter-slider">
+          <input id="parameter_osc_amount" type="range" min="0.0" max="1.0" step="0.01" value="0.8" onchange="updateSlider_osc_amount(value);" oninput="updateSlider_osc_amount(value)">
+        </div>
+        <div class="col parameter-value" id="value_osc_amount">0.8</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">osc_attack</div>
+        <div class="col parameter-slider">
+          <input id="parameter_osc_attack" type="range" min="0.0" max="1.0" step="0.01" value="0.0" onchange="updateSlider_osc_attack(value);" oninput="updateSlider_osc_attack(value)">
+        </div>
+        <div class="col parameter-value" id="value_osc_attack">0.0</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">osc_decay</div>
+        <div class="col parameter-slider">
+          <input id="parameter_osc_decay" type="range" min="0.0" max="1.0" step="0.01" value="0.66" onchange="updateSlider_osc_decay(value);" oninput="updateSlider_osc_decay(value)">
+        </div>
+        <div class="col parameter-value" id="value_osc_decay">0.66</div>
+      </div>
+      <div class="row">
+        <div class="col parameter-name">osc_freq</div>
+        <div class="col parameter-slider">
+          <input id="parameter_osc_freq" type="range" min="0.0" max="1.0" step="0.01" value="0.3" onchange="updateSlider_osc_freq(value);" oninput="updateSlider_osc_freq(value)">
+        </div>
+        <div class="col parameter-value" id="value_osc_freq">0.3</div>
+      </div>
+      <div class="row">
+        <span class="link"><em>powered by <a href="https://github.com/Wasted-Audio/hvcc"><strong>heavy</strong></em></a></span>
+      </div>
+    </div>
+  </body>
+</html>
