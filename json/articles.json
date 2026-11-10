@@ -1,0 +1,234 @@
+[
+    {
+        "title": "dddd: Closing the Abstraction Gap in Pure Data for Computer-Aided Composition ",
+        "description": "dddd extends Pure Data with Lua-based tools for hierarchical musical structures, symbolic composition, and graphical notation, with support for web deployment via pd4web.",
+        "link": "https://periodicos.unespar.edu.br/vortex/article/view/12468",
+        "language": "🇺🇸",
+        "year": 2026,
+        "authors": [
+            "Charles K. Neimog"
+        ],
+        "publisher": "Revista Vórtex",
+        "abstract": "Composers think in terms of chords, gestures, time/rhythmic, and forms—not networks of pack and unpack objects. This article argues that the primary contribution of dddd is to return time to musical thinking within Pure Data (Pd). The library introduces a Lua-based abstraction layer that enables hierarchical structures to be manipulated as first-class musical entities, reducing the accidental complexity described by Brooks (1987). The approach is demonstrated through two libraries: pd-bhack, designed for Computer-Assisted Composition (CAC) and symbolic notation inspired by OpenMusic, and pd-upic, dedicated to graphical representations based on Iannis Xenakis's UPIC system. While bringing Pd closer to environments such as Max (through BACH) and OpenMusic, dddd preserves Pd's native programming model and can be compiled for the Web via pd4web, expanding its potential for interactive, educational, and research applications.",
+        "images": [
+            "images/articles/dddd1.avif",
+            "images/articles/dddd2.avif",
+            "images/articles/dddd3.avif",
+            "images/articles/dddd4.avif"
+        ],
+        "slug": "dddd",
+        "aliases": [
+            "dddd: Closing the Abstraction Gap in Pure Data for Computer-Aided Composition ",
+            "dddd:-Closing-the-Abstraction-Gap-in-Pure-Data-for-Computer-Aided-Composition"
+        ]
+    },
+    {
+        "title": "An audiovisual web-based VR platform for fully immersive storytelling",
+        "description": "A web-based interactive VR platform combining 360° visuals, spatial 3D audio, and virtual storytelling for immersive experiences.",
+        "link": "https://doi.org/10.1145/3822516.3837792",
+        "language": "🇺🇸",
+        "year": 2026,
+        "authors": [
+            "Regis Rossi Alves Faria",
+            "Adiginton J. King Ferreira",
+            "Charles K. Neimog"
+        ],
+        "publisher": "Conference: Web3D '26",
+        "abstract": "Based on the integration of a virtual storytelling application and a spatial audio platform, we conceived an interactive VR platform for allowing an easy-to-use experience of immersive 360-degree visuals and 3D audio directly through the web. We present the major concepts of the project, with a description of the system architecture and component technologies used. Examples of virtual storytelling creation and users’ experience demonstrate the unique features and processes under investigation, emphasizing the potential of spatial audio on platforms in the XR space on the web. The article discusses aspects related to current implementation, user agency and usage potential, reporting on ongoing and future work.",
+        "images": [
+            "images/articles/vsat1.avif",
+            "images/articles/vsat2.avif"
+        ],
+        "slug": "vsat",
+        "aliases": [
+            "An audiovisual web-based VR platform for fully immersive storytelling",
+            "An-audiovisual-web-based-VR-platform-for-fully-immersive-storytelling"
+        ]
+    },
+    {
+        "title": "Enabling Interactive Music Performance through Web Browsers for non-Programmers",
+        "description": "We introduce pd4web, software that allows running Pure Data (Pd) patches directly in web browsers without programming expertise.",
+        "link": "https://www.researchgate.net/publication/395664963_Enabling_Interactive_Music_Performance_through_Web_Browsers_for_non-Programmers?_tp=eyJjb250ZXh0Ijp7InBhZ2UiOiJwcm9maWxlIiwicHJldmlvdXNQYWdlIjoiaG9tZSIsInBvc2l0aW9uIjoicGFnZUNvbnRlbnQifX0",
+        "language": "🇺🇸",
+        "year": 2025,
+        "authors": [
+            "Charles K. Neimog",
+            "Rodolfo Coelho de Souza"
+        ],
+        "publisher": "Simpósio Brasileiro de Computação Musical (SBCM)",
+        "abstract": "We introduce `pd4web`, software that allows running Pure Data (Pd) patches directly in web browsers without programming expertise. It removes the need for Ccode or build configuration, enabling Pd-based electroacoustic and live-electronic works on desktop and mobile platforms. Unlike similar tools, `pd4web` targets musicians and composers familiar with Pd, allowing them todeploy patches online. By lowering technical barriers, it expands creative possibilities and reduces dependence on specialized hardware or software. `pd4web` has been used in compositions such as _Improviso I_, _Cânticos de Silício I_, but also in projects like _Gaia senses Web_ and _cartoP5_, demonstrating real-time web-based electroacoustic performance with minimal setup. However, due to the Web AudioAPI and remaining challenges, including latency and performance limits, the need for ongoing improvements to the Web Audio API remains.",
+        "images": [
+            "images/articles/pd4web0.avif",
+            "images/articles/pd4web1.avif",
+            "images/articles/pd4web2.avif",
+            "images/articles/pd4web3.avif"
+        ],
+        "slug": "enabling-interactive-music-performance-through-web-browsers-for-non-programmers",
+        "aliases": [
+            "Enabling Interactive Music Performance through Web Browsers for non-Programmers",
+            "Enabling-Interactive-Music-Performance-through-Web-Browsers-for-non-Programmers"
+        ]
+    },
+    {
+        "title": "Três patches em VCV Rack para criação musical",
+        "description": "O capítulo aborda o ressurgimento dos sintetizadores modulares no Brasil e propõe seu uso pedagógico com o VCV Rack para fomentar a experimentação e a escuta analítica na música contemporânea.",
+        "link": "https://livroaberto.ufpa.br/items/4728ebfa-86e5-416c-9071-06ac8df04eeb",
+        "language": "🇧🇷",
+        "abstract": "No contexto brasileiro, os sintetizadores analógicos surgiram tardiamente e enfrentaram limitações tanto no mercado quanto nos ambientes acadêmicos, incluindo conservatórios e universidades. Contudo, estamos presenciando um ressurgimento significativo e uma maior popularização desses instrumentos, desde a produção artesanal de luthiers eletrônicos até grandes empresas da indústria musical. Os sintetizadores modulares, em particular, desafiam os modelos tradicionais da música (teclados, escalas de 12 notas etc.) e a cultura digital predominante, oferecendo tanto a reprodução de conceitos musicais tradicionais quanto uma lógica que reflete as estruturas computacionais contemporâneas. Neste cenário de mudança, os estudantes de música enfrentam um dilema peculiar: enquanto são educados em ambientes tradicionais, literalmente em estruturas que conservam saberes, estão expostos a uma cultura digital saturada de mídias e presets. Além disso, muitas universidades brasileiras mantêm currículos defasados em relação às Diretrizes Curriculares Nacionais dos cursos de graduação em música, estabelecidas pelo MEC.",
+        "year": 2024,
+        "publisher": "Editora da Escola de Música da UFPA",
+        "images": [
+            "images/articles/vcvhack0.avif",
+            "images/articles/vcvhack1.avif",
+            "images/articles/vcvhack2.avif",
+            "images/articles/vcvhack3.avif"
+        ],
+        "slug": "tres-patches-em-vcv-rack-para-criacao-musical",
+        "aliases": [
+            "Três patches em VCV Rack para criação musical",
+            "Três-patches-em-VCV-Rack-para-criação-musical"
+        ]
+    },
+    {
+        "title": "Uso de sintetizadores analógicos como estratégias de ensino-aprendizagem em música eletroacústica",
+        "description": "Mostra que sintetizadores analógicos reforçam o aprendizado e a criatividade em música eletroacústica graças à interação física direta entre músico e instrumento.",
+        "language": "🇧🇷",
+        "year": 2023,
+        "abstract": "Este estudo explora o uso de sintetizadores analógicos como instrumentos eficazes para o ensino e a aprendizagem de música eletroacústica. Partimos da hipótese de que, atualmente, os mesmos ambientes digitais que dão suporte ao desenvolvimento de um pensamento contemporâneo de criação musical também são responsáveis por um distanciamento das relações entre músico e instrumento no que tange a transferência de uma gestualidade física e corporal para um plano virtual.",
+        "images": [
+            "images/articles/synth0.avif",
+            "images/articles/synth1.avif",
+            "images/articles/synth2.avif",
+            "images/articles/synth3.avif"
+        ],
+        "link": "https://anppom.org.br/anais/anaiscongresso_anppom_2023/papers/1628/public/1628-7842-1-PB.pdf",
+        "publisher": "XXXII ANPPOM",
+        "slug": "uso-de-sintetizadores-analogicos-como-estrategias-de-ensino-aprendizagem-em-musica-eletroacustica",
+        "aliases": [
+            "Uso de sintetizadores analógicos como estratégias de ensino-aprendizagem em música eletroacústica",
+            "Uso-de-sintetizadores-analógicos-como-estratégias-de-ensino-aprendizagem-em-música-eletroacústica"
+        ]
+    },
+    {
+        "title": "OM-pd: API between PureData and OM-Sharp",
+        "abstract": "This communication will present a library capable of integrating OM-Sharp and PureData. There are two goals: The first is to allow the processing of large amounts of data using the visual language (BRESSON et al., 2017) of OM-Sharp (OM) and the offline mode of PureData. The second is to bring PureData’s audio possibilities to OM.",
+        "description": "OM-pd is an API that connects the visual programming language OpenMusic (OM) with PureData (Pd), enabling real-time audio synthesis and processing within OM.",
+        "link": "https://www.anppom-congressos.org.br/index.php/xxxiicongresso/xxxiiCongrAnppom/paper/viewFile/1165/808",
+        "language": "🇺🇸",
+        "images": [
+            "images/articles/ompd0.avif",
+            "images/articles/ompd1.avif",
+            "images/articles/ompd2.avif",
+            "images/articles/ompd3.avif"
+        ],
+        "year": 2023,
+        "publisher": "XXXI ANPPOM",
+        "slug": "om-pd-api-between-puredata-and-om-sharp",
+        "aliases": [
+            "OM-pd: API between PureData and OM-Sharp",
+            "OM-pd:-API-between-PureData-and-OM-Sharp"
+        ]
+    },
+    {
+        "title": "Criação Mediada Tecnologicamente: O Fast Fourier Transform",
+        "abstract": "This article highlights some properties of the Fast Fourier Transform (FFT) that may impact the aesthetic and conduction of the creative process mediated by the computer. At the end of the article, we will present an OpenMusic library (a work in progress) that allows the visualization and understanding of each separate part of the FFT process, contributing didactyly with your open and commented code, differently from OM-SuperVP and OM-pm2 libraries (distributed in binaries).",
+        "description": "Explora como a FFT afeta a criação musical e apresenta uma biblioteca OpenMusic aberta para estudá-la.",
+        "image": "images/articles/2022-1.avif",
+        "images": [
+            "images/articles/fft0.avif",
+            "images/articles/fft1.avif",
+            "images/articles/fft2.avif",
+            "images/articles/fft3.avif"
+        ],
+        "link": "https://sseditora.com.br/wp-content/uploads/Pesquisa-em-Arte-Midias-e-Tecnologia-Ampliando-Fronteiras.pdf",
+        "language": "🇧🇷",
+        "year": 2022,
+        "publisher": "Stricto Sensu Editora",
+        "slug": "criacao-mediada-tecnologicamente-o-fast-fourier-transform",
+        "aliases": [
+            "Criação Mediada Tecnologicamente: O Fast Fourier Transform",
+            "Criação-Mediada-Tecnologicamente:-O-Fast-Fourier-Transform"
+        ]
+    },
+    {
+        "title": "Organizing Just Intonation Pitches through Xenakis' Sieves and Prime Decomposition",
+        "description": "Shows how Xenakis’ sieves and prime-factor methods can organize Just Intonation pitches, supported by two OpenMusic libraries.",
+        "abstract": "In this article, we will present how we can create, organize and understand pitches of Just Intonation using 1) the theory of sieves (XENAKIS, 1992) to filter the numbers of the harmonic series, 2) the decomposition by prime-numbers (EXARCHOS et al., 2011) applied to the numbers resulted from the sieve, 3) the concept of harmonic identities by Johnston (2006), and finally, 4) the Combinations-Product Set (CPS) by Erv Wilson (NARUSHIMA, 2018), that allows us to see the relationships between harmonic identities.",
+        "link": "https://www.researchgate.net/publication/360845446_Organizing_Just_Intonation_Pitches_through_Xenakis'_Sieves_and_Prime_Decomposition",
+        "image": "images/articles/2022-04.avif",
+        "images": [
+            "images/articles/om0.avif",
+            "images/articles/om1.avif",
+            "images/articles/om2.avif",
+            "images/articles/om3.avif"
+        ],
+        "language": "🇺🇸",
+        "year": 2022,
+        "publisher": "Proceedings of the Xenakis 22",
+        "slug": "organizing-just-intonation-pitches-through-xenakis-sieves-and-prime-decomposition",
+        "aliases": [
+            "Organizing Just Intonation Pitches through Xenakis' Sieves and Prime Decomposition",
+            "Organizing-Just-Intonation-Pitches-through-Xenakis'-Sieves-and-Prime-Decomposition"
+        ]
+    },
+    {
+        "title": "A manipulação do Timbre a partir de estruturas da Afinação Justa",
+        "image": "images/articles/vortex-9.avif",
+        "abstract": "The processes presented  aim  to  establish principles   for   the   organization   of   Just   Intonation systems  in  the  electronic  environment  by  changing partials  of  a  timbre.  We  intend  to  merge  harmony  and timbre   as   in   Spectralism,   but   starting   from   the harmonic  theories  of  Partch(1974),  Johnston  (2006), and    Wilson    (NARUSHIMA,    2018),    to    modify timbres. In this article, the Combination-Product Sets theory, by Erv Wilson, will be the focus.",
+        "link": "https://doi.org/10.33871/23179937.2021.9.3.4",
+        "description": "Propõe princípios para organizar Afinação Justa via manipulação de parciais, unindo harmonia e timbre a partir de Partch, Johnston e Wilson, com foco nos Combination-Product Sets.",
+        "language": "🇧🇷",
+        "year": 2021,
+        "publisher": "Revista Vórtex",
+        "slug": "a-manipulacao-do-timbre-a-partir-de-estruturas-da-afinacao-justa",
+        "aliases": [
+            "A manipulação do Timbre a partir de estruturas da Afinação Justa",
+            "A-manipulação-do-Timbre-a-partir-de-estruturas-da-Afinação-Justa"
+        ]
+    },
+    {
+        "title": "Impasses no uso de estruturas microtonais na composição eletroacústica",
+        "description": "Examina como obras eletroacústicas organizam alturas microtonais e os desafios conceituais envolvidos, destacando o papel do compositor em contextos digitais.",
+        "link": "http://dx.doi.org/10.20504/opus2020c2615",
+        "abstract": "In this text, we investigate how microtonal structures were organized by composers in electroacoustic works. More than a musical analysis, we are interested in exploring the emerging compositional issues when we come across concepts and terminologies of pitch classification (microtonality, temperament, timbre, etc.). Therefore, we explore its aspects and how the parameter of pitch was applied within works of the repertoire, more specifically the pitch qualities and potential within the theme of microtonality. To this end, we base our analyses on the studies of Franck Jedrzejewski, Peter Manning, Curtis Roads, Harry Partch, among others. As a result, we seek to encourage discussion and artistic production on the theme, highlighting the composer’s craft in environments with digital technological support.",
+        "language": "🇧🇷",
+        "image": "images/articles/2021-1.avif",
+        "year": 2021,
+        "publisher": "Revista OPUS",
+        "slug": "impasses-no-uso-de-estruturas-microtonais-na-composicao-eletroacustica",
+        "aliases": [
+            "Impasses no uso de estruturas microtonais na composição eletroacústica",
+            "Impasses-no-uso-de-estruturas-microtonais-na-composição-eletroacústica"
+        ]
+    },
+    {
+        "title": "Instrumentos eletroacústicos de tecla e seu uso na música microtonal",
+        "abstract": "In this text we analyze the electroacoustic keyboard instruments that enable the rendering of microtonal structures and alternative tuning. In addition to a historical analysis of these instruments, we are also interested in understanding their relationship to microtonal composition. We also investigate the reasons why these instruments did not reach a level of mass diffusion. We conclude that there is a strong relationship between microtonal instruments and the culture of sound perception, and the issues are not necessarily on the feasibility of building new instruments. In this research we rely on the studies of Joel Chadabe, Hugh Davies, Nicole Gagné, Franck Jedrzejewski, Jon Appleton, Ben Kettlewell, Thomas Patteson, and Curtis Roads.",
+        "link": "http://dx.doi.org/10.20504/opus2019b2502",
+        "description": "Estuda teclados eletroacústicos microtonais, sua história, uso composicional e a razão cultural de sua pouca difusão.",
+        "image": "images/articles/2019-0.avif",
+        "language": "🇧🇷",
+        "year": 2019,
+        "publisher": "Revista OPUS",
+        "slug": "instrumentos-eletroacusticos-de-tecla-e-seu-uso-na-musica-microtonal",
+        "aliases": [
+            "Instrumentos eletroacústicos de tecla e seu uso na música microtonal",
+            "Instrumentos-eletroacústicos-de-tecla-e-seu-uso-na-música-microtonal"
+        ]
+    },
+    {
+        "title": "Uma Aproximação aos Sistemas de Afinação de Harry Partch e Ben Johnston",
+        "abstract": "This paper aims to investigate the tuning systems of Harry Partch (1901-1974) and Ben Johnston (1926- ) in order to emerge their structures. It also seeks to investigate a trend in American music, with a strong foundation on mathematics and musical acoustics. This paper is based mainly on the writings of these two composers, such as Partch's Genesis of a Music and Johnston's Maximum Clarity",
+        "description": "Examina os sistemas de afinação de Partch e Johnston, suas estruturas e vínculos dentro de uma tradição microtonal americana.",
+        "image": "images/articles/2017-0.avif",
+        "link": "https://revistamusicatheorica.tema.mus.br/index.php/musica-theorica/article/download/15/27",
+        "language": "🇧🇷",
+        "year": 2018,
+        "publisher": "Revista Música Theorica",
+        "slug": "uma-aproximacao-aos-sistemas-de-afinacao-de-harry-partch-e-ben-johnston",
+        "aliases": [
+            "Uma Aproximação aos Sistemas de Afinação de Harry Partch e Ben Johnston",
+            "Uma-Aproximação-aos-Sistemas-de-Afinação-de-Harry-Partch-e-Ben-Johnston"
+        ]
+    }
+]

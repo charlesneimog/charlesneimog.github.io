@@ -1,0 +1,13 @@
+server
+# ignore all .pem
+*.pem
+fonts/.DS_Store
+pages/testes/.backup
+talks/.DS_Store
+.DS_Store
+/scripts/__pycache__
+/scripts/media
+/.cache/github-sites/
+/vertical-assets/
+/openscofo2-vertical.kdenlive
+/openscofo2-vertical.vertical-report.json

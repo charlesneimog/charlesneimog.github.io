@@ -1,0 +1,114 @@
+[
+    {
+    	"title": "Aula Pós Graduação USP",
+    	"link": "./2026-11-USP-Aula-Pos",
+    	"language": "🇧🇷",
+    	"date": "09/11/2026",
+    	"description": "Descrição do funcionamento do pd4web no vsat-audience",
+	"enscrypt": true
+    },
+    {
+    	"title": "I Seminário Brasileiro de Internet dos Sons (IoS-BR)",
+    	"link": "./2026-11-IoS-BR",
+    	"language": "🇧🇷",
+    	"date": "04/11/2026",
+    	"description": "Descrição do funcionamento do pd4web no vsat-audience",
+	"enscrypt": true
+    },
+    {
+        "title": "The Musical Instrument as a Machine and the Machine as a Musical Instrument",
+        "link": "./2026-10-Knob",
+        "language": "🇺🇸",
+        "date": "13/10/2026",
+        "description": "This essay explores how OpenScofo helps flute students learn real-time mixed music through extended techniques, live electronics, and interaction with technology.",
+        "encrypt": true
+    },
+    {
+        "title": "Música e Tecnologia: Mediações",
+        "link": "./2026-05-Laboratorio-USP",
+        "language": "🇧🇷",
+        "date": "18/05/2026",
+        "description": "Possibilidades de interação em tempo real: pd4web e OpenScofo",
+        "encrypt": true
+    },
+    {
+        "title": "Modelos de inteligência artificial em seguidores de partitura",
+        "link": "./2026-05-Nusom",
+        "language": "🇧🇷",
+        "date": "10/05/2026",
+        "description": "Modelos de inteligência artificial em seguidores de partitura: reflexões sobre implementação e democratização no contexto brasileiro",
+        "encrypt": true
+    },
+    {
+        "title": "Pd4web: Programação Criativa na Web",
+        "link": "./2026-05-Aula-pd4web-01/slide.md",
+        "language": "🇧🇷",
+        "date": "10/05/2026",
+        "description": "Este curso é voltado a pesquisadores(as) em computação musical que já utilizam Pure Data e têm interesse em programação de áudio para a web.",
+        "encrypt": false
+    },
+    {
+        "title": "Escuta de Máquina, Score Follower, IA",
+        "link": "./2026-03-Apresentacao-LaFlauta",
+        "language": "🇧🇷",
+        "date": "25/03/2026",
+        "description": "Apresentação no LaFlauta sobre a pesquisa de pós-doutorado na Universidade de São Paulo (2026).",
+        "encrypt": true
+    },
+    {
+        "title": "A técnica como estética composicional",
+        "link": "./2026-03-Apresentacao-7CicloInternacionaldeConvergenciasSonoras",
+        "language": "🇧🇷",
+        "date": "05/03/2026",
+        "description": "Apresentação sobre a pesquisa de doutorado no VII Convergências Sonoras",
+        "encrypt": true
+    },
+    {
+        "title": "A origem da obra de arte",
+        "link": "./2025-12-NMN_origem_arte",
+        "language": "🇧🇷",
+        "date": "04/12/2025",
+        "description": "Apresentação no FEME do Núcleo Música Nova sobre o texto 'A origem da obra de arte' de Martin Heidegger.",
+        "encrypt": true
+    },
+    {
+        "title": "Metodologias composicionais derivadas da filosofia de Bernard Stiegler",
+        "link": "./2025-10-Apresentacao-NMN",
+        "language": "🇧🇷",
+        "date": "29/10/2025",
+        "description": "Apresentação no Núcleo Música Nova sobre a minha tese de doutorado.",
+        "encrypt": true
+    },
+    {
+        "title": "O uso de recursos didáticos digitais e corporais no ensino de leitura e escrita musical: perspectivas heterodoxas",
+        "link": "./2025-10-Concurso-Belas",
+        "language": "🇧🇷",
+        "date": "21/10/2025",
+        "description": "O uso de recursos didáticos digitais e corporais no ensino de leitura e escrita musical: perspectivas heterodoxas.",
+        "encrypt": true
+    },
+    {
+        "title": "pd4web: Enabling PureData for the Web",
+        "link": "./2025-09-SBCM-pd4web",
+        "language": "🇺🇸",
+        "date": "15/09/2025",
+        "description": "I present the pd4web project, which aims to bring PureData to web browsers using WebAssembly and WebAudio API.",
+        "encrypt": false
+    },
+    {
+        "title": "Score Follower: O funcionamento do OpenScofo",
+        "link": "./2025-10-ECA-Aula-IA",
+        "language": "🇧🇷",
+        "date": "06/10/2025",
+        "description": "Apresentação sobre o funcionamento do OpenScofo, uma ferramenta de acompanhamento de partituras.",
+        "encrypt": true
+    },
+    {
+        "title": "Defesa de Doutorado",
+        "link": "./2025-03-Defesa",
+        "language": "🇧🇷",
+        "date": "17/03/2025",
+        "description": "Defesa pública da minha tese de doutorado.",
+        "encrypt": false
+    }
+]

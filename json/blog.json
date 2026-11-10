@@ -1,0 +1,28 @@
+[
+    {
+        "title": "pd-upic: A library for render draws",
+        "date": "Jun 02, 2025",
+        "readingTime": "5 min read",
+        "description": "I present pd-upic, a library based on Iannis Xenakis",
+        "file": "blog/pd-upic.md",
+        "image": "/blog/images/pd-upic.avif",
+        "shareableLink": "pd-upic",
+        "slug": "pd-upic",
+        "aliases": [
+            "pd-upic: A library for render draws",
+            "pd-upic:-A-library-for-render-draws"
+        ]
+    },
+    {
+        "title": "onsetsds~ technical report on contemporary music aimning at OpenScofo",
+        "date": "Apr 04, 2025",
+        "description": "About adding onset detector in OpenScofo",
+        "file": "blog/onsets-oscofo.md",
+        "shareableLink": "onsets-on-oscofo",
+        "slug": "onsets-on-oscofo",
+        "aliases": [
+            "onsetsds~ technical report on contemporary music aimning at OpenScofo",
+            "onsetsds~-technical-report-on-contemporary-music-aimning-at-OpenScofo"
+        ]
+    }
+]

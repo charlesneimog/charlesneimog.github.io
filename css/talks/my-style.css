@@ -1,0 +1,320 @@
+html.talk-slides {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.reveal ul,
+.reveal ol {
+    display: block;
+    margin-left: 0;
+    padding-left: 1em;
+    text-align: left;
+}
+
+.reveal {
+    background: #ffffff;
+    --r-main-font: var(--font-sans);
+    font-family: var(--r-main-font);
+}
+.reveal pre,
+.reveal code {
+    line-height: 2;
+}
+.reveal li {
+    line-height: 1.5;
+}
+.reveal {
+    color: black;
+}
+
+html.talk-slides .reveal .slides section {
+    box-sizing: border-box;
+    padding: 20px 24px;
+}
+
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child {
+    margin-top: 0;
+}
+
+.reveal .slides section.title-slide {
+    align-items: center;
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    min-height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+.reveal .slides section.title-slide > h1:first-child,
+.reveal .slides section.title-slide > h2:first-child {
+    margin: 0;
+}
+
+.reveal .pdf-share-link {
+    align-items: center;
+    bottom: 20px;
+    color: #111827;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 650;
+    gap: 5px;
+    line-height: 1;
+    position: absolute;
+    right: 24px;
+    text-decoration: none;
+    z-index: 2;
+}
+
+.reveal .pdf-share-link:hover,
+.reveal .pdf-share-link:focus-visible {
+    color: #2563eb;
+}
+
+.reveal .pdf-share-link:focus-visible {
+    border-radius: 8px;
+    outline: 3px solid #2563eb;
+    outline-offset: 5px;
+}
+
+.reveal .pdf-share-qrcode {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.14);
+    box-sizing: border-box;
+    display: block;
+    padding: 4px;
+    width: 104px;
+}
+
+.reveal .pdf-share-qrcode svg {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+html.print-pdf .reveal .pdf-share-link {
+    display: none !important;
+}
+
+.reveal qrcode.slide-qrcode {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+    box-sizing: border-box;
+    display: block;
+    margin: 24px auto;
+    max-width: 70vw;
+    padding: 10px;
+    width: 240px;
+}
+
+.reveal qrcode.slide-qrcode svg {
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: auto;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+}
+
+.reveal .logos {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.reveal .logos img {
+    flex-shrink: 0;
+    height: 100px;
+    margin: 0;
+    max-height: 100px;
+    object-fit: contain;
+    width: auto;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+    color: black;
+}
+
+.mermaid {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 0;
+}
+
+
+.mermaid svg text,
+.mermaid svg tspan {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html.talk-slides #presentation-status {
+    position: fixed;
+    z-index: 10;
+    margin: 2rem;
+    font-family: var(--font-sans);
+}
+
+.slide-image-zoom-trigger {
+    cursor: zoom-in;
+}
+
+.slide-image-zoom-trigger:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 4px;
+}
+
+body.slide-image-zoom-open {
+    overflow: hidden;
+}
+
+dialog.slide-image-zoom {
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    cursor: zoom-out;
+    height: 100vh;
+    height: 100dvh;
+    inset: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    overflow: hidden;
+    padding: clamp(16px, 3vw, 40px);
+    width: 100vw;
+}
+
+dialog.slide-image-zoom[open] {
+    display: grid;
+    place-items: center;
+}
+
+dialog.slide-image-zoom::backdrop {
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.slide-image-zoom-image {
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    object-fit: contain;
+    width: 100%;
+}
+
+.slide-image-zoom-close {
+    align-items: center;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    font: 32px/1 Arial, sans-serif;
+    height: 44px;
+    justify-content: center;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 44px;
+}
+
+.slide-image-zoom-close:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    html.talk-slides {
+        --r-block-margin: 12px;
+        --r-heading1-size: 2.4em;
+        --r-heading2-size: 1.75em;
+        --r-heading3-size: 1.3em;
+        --r-main-font-size: 24px;
+    }
+
+    html.talk-slides .reveal .slides section {
+        box-sizing: border-box;
+        padding: 24px 20px;
+    }
+
+    html.talk-slides .reveal .slides section[hidden] {
+        display: none !important;
+    }
+
+    html.talk-slides .reveal .slides section.title-slide {
+        padding: 24px;
+    }
+
+    html.talk-slides .reveal .pdf-share-link {
+        bottom: 12px;
+        font-size: 13px;
+        right: 12px;
+    }
+
+    html.talk-slides .reveal .pdf-share-qrcode {
+        width: 76px;
+    }
+
+    html.talk-slides .reveal li {
+        line-height: 1.35;
+    }
+
+    html.talk-slides .reveal pre,
+    html.talk-slides .reveal code {
+        line-height: 1.4;
+    }
+
+    html.talk-slides .reveal table {
+        display: block;
+        font-size: 0.72em;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    html.talk-slides .reveal .waveform {
+        min-width: 0;
+        width: 100%;
+    }
+
+    html.talk-slides .reveal .audio-wave-group {
+        align-items: stretch !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    html.talk-slides .reveal .audio-wave-group > * {
+        width: 100% !important;
+    }
+
+    html.talk-slides .reveal .audio-wave-wrapper {
+        margin-bottom: 8px !important;
+        margin-top: 8px !important;
+    }
+
+    html.talk-slides .reveal .audio-wave-card {
+        box-sizing: border-box;
+        padding: 12px !important;
+        width: 92% !important;
+    }
+}
+
+@media print {
+    .reveal .pdf-share-link {
+        display: none !important;
+    }
+}

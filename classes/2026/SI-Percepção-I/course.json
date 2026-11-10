@@ -1,0 +1,8 @@
+{
+    "title": "Percepção I",
+    "description": "Percepção I | Unespar | Campus I",
+    "encrypt": true,
+    "lessonPrefix": "aula",
+    "lessonExtension": ".md",
+    "maxLessons": 50
+}

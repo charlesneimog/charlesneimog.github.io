@@ -1,0 +1,239 @@
+{
+    "$schema": "./teasers.schema.json",
+    "configuration": {
+        "title": "NIS",
+        "subtitle": "for flute ensembles and smartphones",
+        "authors": [
+            "Charles K. Neimog",
+            "Cássia Carrascoza"
+        ],
+        "research": {
+            "enabled": true,
+            "label": "Postdoctoral Research",
+            "institution": "University of São Paulo (USP)"
+        },
+        "technology": {
+            "enabled": true,
+            "label": "Topics",
+            "items": [
+                "Live-Eletronics",
+                "AI",
+                "Smartphones"
+            ]
+        },
+        "visual": {
+            "accent": "#654ff0",
+            "background": "#080808",
+            "foreground": "#F5F5F5",
+            "muted": "#A7A7A7",
+            "font": "",
+            "title_weight": "BOLD",
+            "normal_weight": "NORMAL"
+        },
+        "performances": {
+            "carioca": {
+                "ensemble": "Orquestra Carioca de Flautas e Orquestra de Flautas CMU-USP",
+                "conductor": "Sérgio Barrenechea",
+                "location": "Rio de Janeiro, Brazil",
+                "date": "",
+                "musicians": [
+                    "Ana Paula Martins",
+                    "Maria Carolina Cattan",
+                    "Jéssica Oliveira",
+                    "Karine Curty",
+                    "Letícia da Conceição",
+                    "Christi Lia Buarque",
+                    "Marina Montero Bernardi",
+                    "Munique Cruz Medeiros",
+                    "Nathaly Joyce Rangel",
+                    "Roseli Moutinho",
+                    "Thayssa Helen Nascimento",
+                    "Artur Rodrigues",
+                    "Augusto Silva",
+                    "Carlos Rodrigues da Silva",
+                    "David Ganc",
+                    "Eduardo Lagreca",
+                    "Fan Eduardo Seabra",
+                    "Gabriel Improta",
+                    "Itamar Isaias Goldwaser",
+                    "João Pedro Gomes",
+                    "João Sinval Vianna",
+                    "Levi Chaves",
+                    "Pablo Soares",
+                    "Lucas Paulo José da Silva",
+                    "Rodrigo Aldeia Duarte",
+                    "Sérgio Barrenechea",
+                    "Vinicius Marinho",
+                    "Vitor Chaves Corrêa da Silva"
+                ]
+            },
+            "cmu_eca_usp": {
+                "ensemble": "Orquestra de Flautas do CMU-ECA/USP",
+                "conductor": "Cássia Carrascoza Bomfim",
+                "location": "São Paulo, Brazil",
+                "date": "",
+                "musicians": [
+                    "Alessandro Hiro Conceição",
+                    "Debora Theodoro",
+                    "Fladyner Oliveira",
+                    "Gabriela Fiorini",
+                    "Giovana Dilio",
+                    "Igor Souza Lima e Silva Caixeta",
+                    "Jonathan Morais",
+                    "Larissa Moraes",
+                    "Lucas Herrera",
+                    "Maira Cruz",
+                    "Milton Gevertz",
+                    "Patrícia Alonso",
+                    "Renato Kimachi",
+                    "Shen Ribeiro"
+                ]
+            },
+            "colombia": {
+                "ensemble": "Ensamble de Flautas del Festival de Flauta - Bellas Artes",
+                "conductor": "",
+                "location": "Cali, Colombia",
+                "date": "",
+                "musicians": []
+            }
+        }
+    },
+    "render": {
+        "pixel_width": 1080,
+        "pixel_height": 1920,
+        "frame_rate": 60,
+        "frame_width": 9,
+        "frame_height": 16,
+        "format": "mp4",
+        "transparent": false,
+        "output_dir": "media"
+    },
+    "video_screens": {
+        "Title": {
+            "type": "title",
+            "duration": 5.0,
+            "show_subtitle": true,
+            "show_authors": true
+        },
+        "BinauralWarning": {
+            "type": "warning",
+            "overlay_enabled": false,
+            "enabled": false,
+            "title": "HEADPHONES RECOMMENDED",
+            "text": "For the best listening experience, use headphones.",
+            "duration": 4.0
+        },
+        "TextScene_01": {
+            "type": "message",
+            "enabled": true,
+            "title": "NIS runs on smartphones",
+            "text": "Pitch, dynamics, and spatial position\n\nare controlled directly from the smartphone.",
+            "max_chars_per_scene": 220,
+            "max_chars_per_line": 48,
+            "font_size": 30,
+            "min_page_duration": 4.0,
+            "chars_per_second": 18,
+            "overlay_enabled": true,
+            "overlay_opacity": 0.65,
+            "overlay_padding": 0.25
+        },
+        "TextScene_02": {
+            "type": "message",
+            "enabled": true,
+            "title": "From Pure Data to the Web",
+            "text": "The algorithm is a Pure Data patch\n\nrunning in the browser through Pd4Web.",
+            "max_chars_per_scene": 220,
+            "max_chars_per_line": 48,
+            "font_size": 30,
+            "min_page_duration": 4.0,
+            "chars_per_second": 18,
+            "overlay_enabled": true,
+            "overlay_opacity": 0.65,
+            "overlay_padding": 0.25
+        },
+        "TextScene_03": {
+            "type": "message",
+            "enabled": true,
+            "title": "Live electronics, without specialized equipment",
+            "text": "Running on smartphones allows ensembles and students\nto experience live electronics using devices they already have.",
+            "max_chars_per_scene": 220,
+            "max_chars_per_line": 48,
+            "font_size": 30,
+            "min_page_duration": 4.0,
+            "chars_per_second": 18,
+            "overlay_enabled": true,
+            "overlay_opacity": 0.65,
+            "overlay_padding": 0.25
+        },
+        "Performance_carioca": {
+            "type": "performance",
+            "performance": "carioca",
+            "duration": 3.0
+        },
+        "Performance_cmu_eca_usp": {
+            "type": "performance",
+            "performance": "cmu_eca_usp",
+            "duration": 3.0
+        },
+        "Performance_colombia": {
+            "type": "performance",
+            "performance": "colombia",
+            "duration": 3.0
+        },
+        "Overlay": {
+            "type": "overlay",
+            "show_title": true,
+            "show_subtitle": false,
+            "label": "",
+            "border_size": 0.13,
+            "duration": 8.0
+        },
+        "Credits_carioca": {
+            "type": "credits",
+            "performance": "carioca",
+            "overlay_enabled": false,
+            "show_musicians": true,
+            "columns": 3,
+            "duration": 12.0
+        },
+        "Credits_cmu_eca_usp": {
+            "type": "credits",
+            "performance": "cmu_eca_usp",
+            "overlay_enabled": false,
+            "show_musicians": true,
+            "columns": 3,
+            "duration": 12.0
+        },
+        "Credits_colombia": {
+            "type": "credits",
+            "performance": "colombia",
+            "overlay_enabled": false,
+            "show_musicians": true,
+            "columns": 3,
+            "duration": 12.0
+        },
+        "EndCard": {
+            "type": "end_card",
+            "overlay_enabled": false,
+            "duration": 6.0,
+            "show_authors": true,
+            "show_technology": true,
+            "show_research": true
+        }
+    },
+    "scenes": [
+        "Title",
+        "BinauralWarning",
+        "TextScene_01",
+        "TextScene_02",
+        "TextScene_03",
+        "Performance_carioca",
+        "Performance_cmu_eca_usp",
+        "Performance_colombia",
+        "Overlay",
+        "Credits_carioca",
+        "Credits_cmu_eca_usp",
+        "Credits_colombia",
+        "EndCard"
+    ]
+}

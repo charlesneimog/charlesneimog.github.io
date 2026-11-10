@@ -1,0 +1,43 @@
+
+            /* Minimal structural CSS for StatiCrypt functionality */
+            .hidden {
+                display: none !important;
+            }
+            .staticrypt-spinner-container {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .staticrypt-spinner {
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+                border: 0.25em solid gray;
+                border-right-color: transparent;
+                border-radius: 50%;
+                animation: spinner-border 0.75s linear infinite;
+            }
+            @keyframes spinner-border {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            .staticrypt-password-container {
+                position: relative;
+                width: 100%;
+            }
+            .staticrypt-toggle-password-visibility {
+                cursor: pointer;
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 20px;
+                opacity: 0.6;
+            }
+            .staticrypt-toggle-password-visibility:hover {
+                opacity: 1;
+            }
+        

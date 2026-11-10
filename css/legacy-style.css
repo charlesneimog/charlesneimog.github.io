@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #f8f9fa;
+        --fg: rgb(0, 0, 0, 0.9);
+        --hr: #ccc;
+        --wave: #0096ff;
+        --description: #444;
+        --post-meta: #777;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212;
+        --fg: rgba(255, 255, 255, 0.9);
+        --hr: #444;
+        --wave: #66ccff;
+        --description: #bbb;
+        --post-meta: #999;
+    }
+}
+
+body {
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Open Sans",
+        "Helvetica Neue",
+        sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--fg);
+    background-color: var(--bg);
+    margin: 0;
+    padding: 20px;
+}
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    color: var(--fg);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    word-wrap: break-word;
+}
+
+p {
+    font-weight: 400;
+    text-align: justify;
+    max-width: 1200px; /* Limita a largura dos títulos */
+    margin: 40px auto; /* Centraliza */
+    word-wrap: break-word; /* Garante que palavras longas sejam quebradas corretamente */
+    font-size: 18px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--hr);
+    margin: 20px 0;
+    width: 30%;
+    margin: 20px auto;
+}
+
+button {
+    align-items: center;
+    background: #ffffff;
+    border: 0 solid #e2e8f0;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    color: #1a202c;
+    display: inline-flex;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 56px;
+    justify-content: center;
+    line-height: 24px;
+    overflow-wrap: break-word;
+    padding: 24px;
+    text-decoration: none;
+    width: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.audio {
+    box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    display: flex; /* ou block, dependendo do contexto */
+    align-items: center;
+    width: 50%;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto 10px;
+}
+
+.audio:focus {
+    box-shadow: 0px 0px 5px 0px #3080f0;
+}
+
+.piece-container {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+img {
+    width: 75%;
+    height: auto;
+    margin: 0 auto; /* centraliza horizontalmente */
+    display: block; /* necessário para margin auto funcionar em imagens */
+    border-radius: 10px;
+}
+
+.colorlib-logo {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 5px;
+    padding: 7px;
+    border: 1px solid #000;
+    display: block;
+    text-align: center;
+    background: #000;
+}
+
+/*
+ *╭─────────────────────────────────────╮
+ *│             Blog Pages              │
+ *╰─────────────────────────────────────╯
+*/
+.post {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.post img {
+    width: 200px;
+    height: auto;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+.post-content {
+    flex: 1;
+    margin-bottom: 50px;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-title a {
+    text-decoration: none;
+    color: --var(fg);
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
+
+.post-description {
+    font-size: 14px;
+    color: --var(description);
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    font-size: 12px;
+    color: --var(post-meta);
+}

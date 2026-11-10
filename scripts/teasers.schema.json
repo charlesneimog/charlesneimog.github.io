@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Teaser screens",
+  "type": "object",
+  "required": ["video_screens", "scenes"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"type": "string"},
+    "configuration": {"$ref": "#/$defs/configuration", "default": {}},
+    "render": {"$ref": "#/$defs/render", "default": {}},
+    "video_screens": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"pattern": "^[A-Za-z][A-Za-z0-9_-]*$"},
+      "additionalProperties": {"$ref": "#/$defs/screen"}
+    },
+    "scenes": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "positive": {"type": "number", "exclusiveMinimum": 0},
+    "positive_integer": {"type": "integer", "minimum": 1},
+    "color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+    "strings": {"type": "array", "items": {"type": "string", "pattern": "\\S"}},
+    "configuration": {
+      "type": "object",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {
+        "title": {"type": "string", "default": ""},
+        "subtitle": {"type": "string", "default": ""},
+        "authors": {"$ref": "#/$defs/strings", "default": []},
+        "visual": {"$ref": "#/$defs/visual", "default": {}},
+        "performances": {
+          "type": "object", "default": {},
+          "additionalProperties": {"$ref": "#/$defs/performance_data"}
+        },
+        "research": {
+          "type": "object", "default": {}, "additionalProperties": false,
+          "properties": {
+            "enabled": {"type": "boolean", "default": false},
+            "label": {"type": "string", "default": "Postdoctoral Research"},
+            "institution": {"type": "string", "default": ""}
+          }
+        },
+        "technology": {
+          "type": "object", "default": {}, "additionalProperties": false,
+          "properties": {
+            "enabled": {"type": "boolean", "default": false},
+            "label": {"type": "string", "default": "Topics"},
+            "items": {"$ref": "#/$defs/strings", "default": []}
+          }
+        }
+      }
+    },
+    "visual": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "accent": {"$ref": "#/$defs/color", "default": "#654ff0"},
+        "background": {"$ref": "#/$defs/color", "default": "#080808"},
+        "foreground": {"$ref": "#/$defs/color", "default": "#F5F5F5"},
+        "muted": {"$ref": "#/$defs/color", "default": "#A7A7A7"},
+        "overlay_color": {"$ref": "#/$defs/color", "default": "#000000"},
+        "font": {"type": "string", "default": ""},
+        "title_weight": {"enum": ["NORMAL", "BOLD"], "default": "BOLD"},
+        "normal_weight": {"enum": ["NORMAL", "BOLD"], "default": "NORMAL"},
+        "margin_x": {"type": "number", "minimum": 0, "default": 0.55},
+        "margin_y": {"type": "number", "minimum": 0, "default": 0.85}
+      }
+    },
+    "render": {
+      "type": "object", "required": [], "additionalProperties": false,
+      "properties": {
+        "pixel_width": {"type": "integer", "minimum": 2, "multipleOf": 2, "default": 1080},
+        "pixel_height": {"type": "integer", "minimum": 2, "multipleOf": 2, "default": 1920},
+        "frame_rate": {"$ref": "#/$defs/positive", "default": 60},
+        "frame_width": {"$ref": "#/$defs/positive"},
+        "frame_height": {"$ref": "#/$defs/positive", "default": 16},
+        "format": {"enum": ["mp4", "mov", "webm"], "default": "mp4"},
+        "transparent": {"type": "boolean", "default": false},
+        "output_dir": {"type": "string", "minLength": 1, "default": "media"}
+      }
+    },
+    "performance_data": {
+      "type": "object", "required": ["ensemble"], "additionalProperties": false,
+      "properties": {
+        "ensemble": {"type": "string", "pattern": "\\S"},
+        "conductor": {"type": "string", "default": ""},
+        "location": {"type": "string", "default": ""},
+        "date": {"type": "string", "default": ""},
+        "musicians": {"$ref": "#/$defs/strings", "default": []}
+      }
+    },
+    "screen": {
+      "type": "object",
+      "required": ["type"],
+      "unevaluatedProperties": false,
+      "properties": {
+        "type": {"enum": ["title", "message", "subtitle", "warning", "performance", "credits", "overlay", "end_card", "logos"]},
+        "enabled": {"type": "boolean", "default": true},
+        "duration": {"$ref": "#/$defs/positive"},
+        "graphics": {"type": "boolean", "default": true},
+        "transparent": {"type": "boolean", "description": "Override render.transparent for this screen; inherits it when omitted."},
+        "border_size": {"$ref": "#/$defs/positive", "default": 0.035},
+        "overlay_enabled": {"type": "boolean", "default": true},
+        "overlay_opacity": {"type": "number", "minimum": 0, "maximum": 1, "default": 0.65},
+        "overlay_padding": {"type": "number", "minimum": 0, "default": 0.25}
+      },
+      "allOf": [
+        {"if": {"properties": {"type": {"const": "title"}}}, "then": {"$ref": "#/$defs/title"}},
+        {"if": {"properties": {"type": {"const": "message"}}}, "then": {"$ref": "#/$defs/message"}},
+        {"if": {"properties": {"type": {"const": "subtitle"}}}, "then": {"$ref": "#/$defs/subtitle"}},
+        {"if": {"properties": {"type": {"const": "warning"}}}, "then": {"$ref": "#/$defs/warning"}},
+        {"if": {"properties": {"type": {"const": "performance"}}}, "then": {"$ref": "#/$defs/performance"}},
+        {"if": {"properties": {"type": {"const": "credits"}}}, "then": {"$ref": "#/$defs/credits"}},
+        {"if": {"properties": {"type": {"const": "overlay"}}}, "then": {"$ref": "#/$defs/overlay"}},
+        {"if": {"properties": {"type": {"const": "end_card"}}}, "then": {"$ref": "#/$defs/end_card"}},
+        {"if": {"properties": {"type": {"const": "logos"}}}, "then": {"$ref": "#/$defs/logos"}}
+      ]
+    },
+    "title": {
+      "required": [],
+      "properties": {
+        "duration": {"default": 5},
+        "title": {"type": "string"},
+        "subtitle": {"type": "string"},
+        "image": {"type": "string", "minLength": 1},
+        "image_height": {"$ref": "#/$defs/positive", "default": 3},
+        "image_color": {"$ref": "#/$defs/color"},
+        "show_title": {"type": "boolean", "default": true},
+        "show_subtitle": {"type": "boolean", "default": true},
+        "show_authors": {"type": "boolean", "default": true},
+        "font_size": {"$ref": "#/$defs/positive", "default": 100},
+        "subtitle_font_size": {"$ref": "#/$defs/positive", "default": 29},
+        "authors_font_size": {"$ref": "#/$defs/positive", "default": 21}
+      }
+    },
+    "message": {
+      "required": ["text"],
+      "properties": {
+        "title": {"type": "string", "default": ""},
+        "text": {"type": "string", "pattern": "\\S"},
+        "font_size": {"$ref": "#/$defs/positive", "default": 30},
+        "title_font_size": {"$ref": "#/$defs/positive", "default": 35},
+        "max_chars_per_scene": {"$ref": "#/$defs/positive_integer", "default": 220},
+        "max_chars_per_line": {"$ref": "#/$defs/positive_integer", "default": 48},
+        "min_page_duration": {"$ref": "#/$defs/positive", "default": 4},
+        "chars_per_second": {"$ref": "#/$defs/positive", "default": 18}
+      }
+    },
+    "subtitle": {
+      "required": ["text"],
+      "properties": {
+        "text": {"type": "string", "pattern": "\\S"},
+        "font_size": {"$ref": "#/$defs/positive", "default": 30},
+        "max_chars_per_scene": {"$ref": "#/$defs/positive_integer", "default": 220},
+        "max_chars_per_line": {"$ref": "#/$defs/positive_integer", "default": 48},
+        "min_page_duration": {"$ref": "#/$defs/positive", "default": 4},
+        "chars_per_second": {"$ref": "#/$defs/positive", "default": 18}
+      }
+    },
+    "warning": {
+      "required": ["title", "text"],
+      "properties": {
+        "duration": {"default": 4},
+        "title": {"type": "string", "pattern": "\\S"},
+        "text": {"type": "string", "pattern": "\\S"},
+        "font_size": {"$ref": "#/$defs/positive", "default": 37},
+        "text_font_size": {"$ref": "#/$defs/positive", "default": 21}
+      }
+    },
+    "performance": {
+      "required": ["performance"],
+      "properties": {
+        "duration": {"default": 3},
+        "performance": {"type": "string"},
+        "font_size": {"$ref": "#/$defs/positive", "default": 28},
+        "detail_font_size": {"$ref": "#/$defs/positive", "default": 16}
+      }
+    },
+    "credits": {
+      "required": [],
+      "allOf": [{"$ref": "#/$defs/logo_options"}],
+      "properties": {
+        "duration": {"default": 12},
+        "performance": {"type": "string"},
+        "title": {"type": "string"},
+        "subtitle": {"type": "string", "default": ""},
+        "subtitle_font_size": {"$ref": "#/$defs/positive", "default": 24},
+        "lines": {"$ref": "#/$defs/strings", "default": []},
+        "show_authors": {"type": "boolean", "default": false},
+        "show_musicians": {"type": "boolean", "default": true},
+        "columns": {"$ref": "#/$defs/positive_integer", "default": 3},
+        "font_size": {"$ref": "#/$defs/positive", "default": 15},
+        "title_font_size": {"$ref": "#/$defs/positive", "default": 35}
+      }
+    },
+    "overlay": {
+      "required": [],
+      "properties": {
+        "duration": {"default": 8},
+        "show_title": {"type": "boolean", "default": true},
+        "show_subtitle": {"type": "boolean", "default": false},
+        "label": {"type": "string", "default": ""},
+        "font_size": {"$ref": "#/$defs/positive", "default": 25},
+        "subtitle_font_size": {"$ref": "#/$defs/positive", "default": 13},
+        "label_font_size": {"$ref": "#/$defs/positive", "default": 18}
+      }
+    },
+    "logo": {
+      "type": "object", "required": ["image"], "additionalProperties": false,
+      "properties": {
+        "image": {"type": "string", "pattern": "\\S", "description": "Image path, absolute or relative to the teaser JSON."},
+        "image_color": {"$ref": "#/$defs/color", "description": "Optional tint; omit to preserve the original colors."}
+      }
+    },
+    "logo_options": {
+      "properties": {
+        "logos": {"type": "array", "items": {"$ref": "#/$defs/logo"}, "default": [], "description": "Logos in display order; automatically fitted into a centered row on credits and end cards."},
+        "image_height": {"$ref": "#/$defs/positive", "default": 1, "description": "Maximum logo height; reduced automatically to fit all logos."},
+        "gap": {"type": "number", "minimum": 0, "default": 0.35},
+        "corner_radius": {"type": "number", "minimum": 0, "default": 0, "description": "Logo corner radius in Manim units at image_height; scales with the logo. 0 keeps square corners."},
+        "special_thanks": {"$ref": "#/$defs/strings", "default": [], "description": "Names or acknowledgment lines. Empty hides this section."},
+        "special_thanks_title": {"type": "string", "default": "Special thanks"}
+      }
+    },
+    "logos": {
+      "required": ["logos"],
+      "allOf": [{"$ref": "#/$defs/logo_options"}],
+      "properties": {
+        "duration": {"default": 6},
+        "logos": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/logo"}, "description": "Logos in display order. Rows, positions and sizes are chosen automatically."},
+        "image_height": {"$ref": "#/$defs/positive", "default": 2.5},
+        "gap": {"type": "number", "minimum": 0, "default": 0.65},
+        "font_size": {"$ref": "#/$defs/positive", "default": 22},
+        "title_font_size": {"$ref": "#/$defs/positive", "default": 35}
+      }
+    },
+    "end_card": {
+      "required": [],
+      "allOf": [{"$ref": "#/$defs/logo_options"}],
+      "properties": {
+        "duration": {"default": 6},
+        "title": {"type": "string"},
+        "show_authors": {"type": "boolean", "default": true},
+        "show_technology": {"type": "boolean", "default": true},
+        "show_research": {"type": "boolean", "default": true},
+        "font_size": {"$ref": "#/$defs/positive", "default": 76},
+        "authors_font_size": {"$ref": "#/$defs/positive", "default": 22}
+      }
+    }
+  }
+}

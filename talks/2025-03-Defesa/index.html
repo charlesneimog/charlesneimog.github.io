@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Apresentação</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css"
+      integrity="sha512-0AUO8B5ll9y1ERV/55xq3HeccBGnvAJQsVGitNac/iQCLyDTGLUBMPqlupIWp/rJg0hV3WWHusXchEIdqFAv1Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/solarized.min.css"
+      integrity="sha512-V8VzH1oZOKksN3BHgMaqU9mZBqST6lh6CKSGOz4/pXjOHXHvm4NdX753i8ImR18/IpQqXKG2mUUrnB/zc3nFHQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.js"
+      integrity="sha512-35L3EFHQcGaTZ6QN9wAg9iK1hTPVCn8RGsscuXjm5JdmDRyOw+/IWJ4wavGkozQ8VDoddD7nV1psHgu/BYNpxQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"
+      integrity="sha512-6FaAxxHuKuzaGHWnV00ftWqP3luSBRSopnNAA2RvQH1fOfnF/A1wOfiUWF7cLIOFcfb1dEhXwo5VG3DAisocRw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.min.js"
+      integrity="sha512-k2XqlNMT3e0wVsA5tq6GAYn50wC6/vLk4jS5ytmtEz5ZOcug2eOzQtn8N3Q5Jd61kjLtjTjvZMIHISovqG6aMw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js"
+      integrity="sha512-1YMgn4j8cIL91s14ByDGmHtBU6+F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO++nJMtcpWbINWjMSzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/addons/p5.sound.min.js"
+      integrity="sha512-WzkwpdWEMAY/W8WvP9KS2/VI6zkgejR4/KTxTl4qHx0utqeyVE0JY+S1DlMuxDChC7x0oXtk/ESji6a0lP/Tdg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="../../js/menu.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <link rel="stylesheet" href="/css/talks/2025-03-Defesa/index.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                01                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section data-transition="fade">
+          <span style="font-size: 0.8em">
+            <h1 style="margin-top: 10%">
+              A Técnica como Linguagem Composicional
+            </h1>
+          </span>
+          <p></p>
+
+          <h3>
+            Perspectivas filosóficas e práticas na música computacional
+            brasileira
+          </h3>
+          <div style="margin-top: 5%">
+            <p>Charles Klippel Neimog</p>
+            <span style="font-size: 0.8em">
+              <p><b>Orientador:</b> Prof. Dr. Rodolfo Coelho de Souza</p>
+            </span>
+          </div>
+          <div style="margin-top: 5%">
+            <img
+              src="eca.avif"
+              alt="ECA USP"
+              style="border-radius: 20px"
+              width="400px"
+            />
+          </div>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                02                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide2" data-transition="slide">
+          <h2>Introdução: Problema</h2>
+          <ul>
+            <li>
+              <strong>Problema de Pesquisa:</strong>
+              <ul>
+                <li>Leitura de <em>O Enigma do Lupe</em> (Rodolfo Caesar).</li>
+                <li>
+                  Erros nos cálculos de harmonias microtonais no OpenMusic
+                  devido a arredondamentos na conversão de frequências para
+                  midicents.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <hr />
+          <span style="font-size: 1.3em">
+            <p>
+              <i>
+                É possível criar metodologias composicionais para evitar marcas
+                d'água?
+              </i>
+            </p>
+          </span>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                03                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide3" data-transition="convex">
+          <h1>Capítulo I: Base</h1>
+          <ul>
+            <li>
+              <strong>Bernard Stiegler e o conceito de epifilogênese:</strong>
+              técnica e linguagem composicional são inseparáveis.
+            </li>
+            <li>
+              Conexão entre a filosofia de Stiegler e o processo criativo.
+            </li>
+          </ul>
+        </section>
+        <!---->
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                04                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide4" data-transition="concave">
+          <h2>Capítulo I: Metodologias</h2>
+          <ul>
+            <li><strong>Metodologias em Técnica e Tempo I:</strong></li>
+            <ul>
+              <li>
+                Referências a <strong>Gille</strong>,
+                <strong>Leroi-Gourhan</strong>, <strong>Simondon</strong> e
+                <strong>Stiegler</strong>.
+              </li>
+              <li>Exemplos musicais discutidos dentro do contexto teórico.</li>
+            </ul>
+          </ul>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                05                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide5" data-transition="zoom">
+          <h2>Capítulo I: Destaque</h2>
+          <ul>
+            <li>
+              <strong>Comparação entre Schoenberg e abordagens de:</strong>
+              <ul>
+                <li>Harry Partch</li>
+                <li>Ben Johnston</li>
+                <li>James Tenney</li>
+              </ul>
+            </li>
+            <li>
+              Destacar a atitude técnica, seja em primeira pessoa ou
+              terceirizada (como fez Ben Johnston).
+            </li>
+          </ul>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                06                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide6" data-transition="fade">
+          <h2>Capítulo I: Stiegler</h2>
+          <ul>
+            <li>
+              <strong>Proletarização do saber:</strong> Riscos da automatização
+              e perda de habilidades essenciais.
+            </li>
+            <li>
+              Análise dos estudos mais recentes de Stiegler (2018) sobre o
+              saber-fazer.
+            </li>
+          </ul>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                07                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-chap2" data-transition="slide">
+          <h1>Análise Técnica</h1>
+          <h2>Transformada de Fourier, Partial Tracking e Score Follower.</h2>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                08                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-fft" data-transition="convex">
+          <h2>Fast Fourier Transform</h2>
+          <div style="display: flex">
+            <div style="width: 30%">
+              <script src="/js/talks/2025-03-Defesa/slide-fft.js"></script>
+              <div
+                id="slide-fft-canvas"
+                style="width: 100%; margin: 0 auto"
+              ></div>
+              <span style="font-size: 0.8em">
+                \[ X(k) = \sum_{n=0}^{N-1} x(n) \times e^{-i\frac{2\pi}{N}kn} \]
+              </span>
+              <span style="font-size: 0.8em">\[ Amp(k) = 0.4 \]</span>
+            </div>
+
+            <div style="width: 70%">
+              <ul>
+                <!-- Primeiro fragmento -->
+                <li class="fragment fade-in fade-in-then-semi-out">
+                  <strong>Devido aos valores Discretos para \( k \):</strong>
+                  <ul>
+                    <li>Temos uma tendência a Afinação Justa</li>
+                    <li>Temos uma tendência a <i>clusters</i></li>
+                  </ul>
+                </li>
+
+                <!-- Segundo fragmento -->
+                <li class="fragment fade-in fade-in-then-semi-out">
+                  <strong>Máxima Local</strong>
+                  <div>
+                    <span style="font-size: 0.8em">
+                      \[ \begin{cases} \texttt{Verdadeiro}, & \text{se } a(k -
+                      1) < a(k) > a(k + 1) \\ \texttt{Falso}, & \text{caso
+                      contrário} \end{cases} \]
+                    </span>
+                  </div>
+                </li>
+
+                <!-- Terceiro fragmento -->
+                <li class="fragment fade-in fade-in-then-semi-out">
+                  <strong>Correção de Frequência</strong>
+                  <div>
+                    <span style="font-size: 0.6em">
+                      \[ \begin{equation} \label{eq:p_definition} p =
+                      \frac{1}{2}\left(\frac{\alpha - \gamma}{\alpha - (2 \cdot
+                      \beta) - \gamma}\right) \end{equation} \] \[
+                      \begin{equation} \label{eq:peak_amp_a} a = \Re{X(k)} -
+                      \frac{1}{4} \cdot p \cdot (\Re{X(k - 1)} - \Re{X(k + 1)})
+                      \end{equation} \] \[ \begin{equation}
+                      \label{eq:peak_amp_b} b = \Im{X(k)} - \frac{1}{4} \cdot p
+                      \cdot (\Im{X(k - 1)} - \Im{X(k + 1)}) \end{equation} \]
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                09                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-partialtrack" data-transition="fade">
+          <h2>Partial Tracking</h2>
+
+          <div style="display: flex">
+            <div style="width: 30%">
+              <h4><code>pd-partialtrack</code></h4>
+              <img
+                src="./partialtrack.avif"
+                alt="Partial Tracking"
+                style="max-height: 40%; margin: auto"
+              />
+              <h4>Interpolação Linear e Logaritmica</h4>
+              <img
+                src="./interpolacao_constante.avif"
+                alt="2"
+                style="max-height: 40%; margin: auto"
+              />
+            </div>
+
+            <div style="width: 70%">
+              <span style="display: block; line-height: 10">
+                <span style="font-size: 0.9em">
+                  <ul>
+                    <div class="fragment fade-in fade-in-then-semi-out">
+                      <li>
+                        <strong>Partial Tracking & STFT:</strong> Conexão suave
+                        de fotos espectrais com transições contínuas em
+                        frequência, amplitude e fase.
+                      </li>
+                      <li>
+                        <strong>Natureza Destrutiva:</strong> Partial Tracking
+                        destroi informações e tenta as reconstruir
+                        algoritmicamente.
+                      </li>
+                    </div>
+
+                    <div class="fragment fade-in fade-in-then-semi-out">
+                      <li>
+                        <strong>Ferramentas:</strong> Implementação via
+                        bibliotecas py4pd-spt e pd-partialtrack.
+                      </li>
+                      <li>
+                        <strong>Manipulação Sonora:</strong> Re-afinamento de
+                        componentes do timbre e timbre-morph.
+                      </li>
+                    </div>
+
+                    <div class="fragment fade-in fade-in-then-semi-out">
+                      <li>
+                        <strong>Equilíbrio Composicional:</strong> Tensão entre
+                        controle técnico e coerência criativa (ex: obra
+                        <em>Espelhos Técnicos (não finalizada)</em>).
+                      </li>
+                      <li>
+                        <strong>Rigidez Algorítmica:</strong> Formas sonoras
+                        definidas pelo algoritmo, limitando a ação do(a)
+                        compositor(a) à relação entre resultados.
+                      </li>
+                    </div>
+                  </ul>
+                </span>
+              </span>
+            </div>
+            <div
+              class="fragment fade-in"
+              style="
+                position: absolute;
+                margin-left: 30%;
+                background: rgb(251, 251, 251);
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+                width: 70%;
+                height: 80%;
+              "
+            >
+              <p style="margin-top: 20%">
+                O algoritmo impõe uma relação que foge ao controle técnico,
+                introduzindo uma dinâmica na qual dimensões de controle do
+                próprio processo criativo são perdidas, é uma relação fixa na
+                qual se aceita ou não o resultado e partir dele se cria conexões
+                sonoras com outros resultados de outros usos do algoritmo*.
+              </p>
+              <span style="font-size: 0.3em"
+                >* Texto parcialmente reescrito.</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                10                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-scorefollower" data-transition="concave">
+          <h2>Seguidor de Partituras</h2>
+          <p
+            style="margin-top: 3%; margin-bottom: 3%"
+            class="fragment fade-in fade-in-then-semi-out"
+          >
+            Sua ação não se dá diretamente sobre o som, mas sim na realização de
+            uma proposta sonora predefinida.
+          </p>
+
+          <div
+            class="fragment fade-in fade-in-then-out"
+            style="
+              position: absolute;
+              border-radius: 15px;
+              margin-top: 0px;
+              width: 100%;
+              height: 100%;
+            "
+          >
+            <h4>Eventos Semi-Markovianos</h4>
+            <p>
+              \[ \alpha_j(t) = \frac{b_j(x_t)}{N_t} \times \left[ \sum_{u=1}^t
+              \left( \left\{ \prod_{v=1}^{u-1} b_j(x_{t-v})\right\} d_j(u)
+              \sum_{i \neq j} (p_{ij}\alpha_i(t-u) \right) \right] \]
+            </p>
+            <h4>Eventos Markovianos</h4>
+            <p>
+              \[ \alpha_j(t) = b_j(x_t) \times \max_{i} (p_{ij}\alpha_i(t-1)) \]
+            </p>
+          </div>
+
+          <div
+            class="fragment concave-in fade-in-then-out"
+            style="
+              position: absolute;
+              border-radius: 15px;
+              margin-top: 0px;
+              width: 100%;
+              height: 100%;
+            "
+          >
+            <h3>Modelo de Tempo</h3>
+            <span style="font-size: 0.6em">
+              <p>
+                \[ r_n = r_{n-1} - \eta_s \left[ r_{n-1} - \cos \left( 2\pi
+                \left( \frac{t_n - t_{n-1}}{\hat{\psi}_n} - \hat{\phi}_n \right)
+                \right) \right] \]
+              </p>
+              <p>\[ \kappa = A^{-1}_2(r_n) \]</p>
+              <p>
+                \[ \kappa = A^{-1}_2(r_n) \text{ onde } A_2(\lambda) =
+                \frac{I_1(\lambda)}{I_0(\lambda)} \]
+              </p>
+              <p>
+                \[ \phi_{n} = \phi_{n-1} + \frac{t_{n} - t_{n-1}}{\psi_{n-1}} +
+                \eta_{\phi}F(\phi_{n-1}, \hat{\phi}_{n-1}, \kappa) \text{
+                mod}^{+\pi}_{-\pi} \]
+              </p>
+              <p>
+                \[ \hat{\psi}_{n+1} = \hat{\psi}_n \left[1 + \eta_s F(\phi_n,
+                \hat{\phi}_n, \kappa)\right] \]
+              </p>
+              <p>\[ \hat{\text{BPM}} = 60 \div \hat{\psi}_{n+1} \]</p>
+              <p>
+                \[d_j(u) = \exp \left[ -\frac{u}{\psi_{n-1}-\ell_n} \right]\]
+              </p>
+            </span>
+          </div>
+          <div
+            class="fragment slide-in fade-in-then-out"
+            style="
+              position: absolute;
+              border-radius: 15px;
+              margin-top: 0px;
+              width: 100%;
+              height: 100%;
+            "
+          >
+            <h3>Modelo de Altura</h3>
+            <p>
+              \[ f(x) = A \exp \left( - \frac{(x - x_0)^2}{2 \sigma^2} \right)
+              \]
+            </p>
+            <p>
+              \begin{equation} \label{eq:scipy-kl} D_{\text{KL}}(P \| Q) =
+              \sum_{i} \begin{cases} P(i) \log \left( \frac{P(i)}{Q(i)} \right)
+              - P(i) + Q(i) & \text{se } P(i) > 0 \text{ e } Q(i) > 0 \\ Q(i) &
+              \text{se } P(i) = 0 \text{ e } Q(i) \geq 0 \\ \infty & \text{caso
+              contrário} \end{cases} \end{equation}
+            </p>
+            <p>\[ b_j(x_t) = \exp(-\beta \cdot D_{\text{KL}})\]</p>
+          </div>
+          <div
+            class="fragment slide-in fade-in-then-out"
+            style="
+              position: absolute;
+              border-radius: 15px;
+              margin-top: 0px;
+              width: 100%;
+            "
+          >
+            <h3>Modelo da partitura</h3>
+            <img src="score-markov.avif" style="width: 30%" />
+            <p>
+              <b>Delta de Kronecker</b>
+            </p>
+            <p>
+              Em resumo: \[ \delta_{i,\,i+1} = \begin{cases} 1, & \text{se } j =
+              i+1, \\ 0, & \text{caso contrário}. \end{cases} \]
+            </p>
+          </div>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                11                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-algoritmos" data-transition="slide">
+          <h1>Propostas Técnicas</h1>
+          <h2><code>py4pd</code>, <code>pd4web</code>, <code>OpenScofo</code></h2>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                12                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="py4pd-algorithm" data-transition="zoom">
+          <h2><code>py4pd</code></h2>
+          <img src="py4pd.svg" alt="py4pd" style="width: 10%" />
+          <p>
+            <i>
+              O <code>py4pd</code> integra processos composicionais com
+              desenvolvimento tecnológico no PureData, manipulando dados
+              complexos que não são nativamente suportados.
+            </i>
+          </p>
+
+          <ul>
+            <li class="fragment fade-in-then-semi-out">
+              <strong>Base:</strong> Desenvolvido a partir da BachLibrary para o
+              Max, utilizando ponteiros para troca de informações entre objetos.
+            </li>
+            <div
+              class="fragment fade-in-then-out"
+              style="
+                position: absolute;
+                top: 30%;
+                left: 0;
+                background-color: white;
+                border-radius: 15px;
+                width: 100%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+              "
+            >
+              <img
+                src="py4pd-obj.avif"
+                alt="oscofo"
+                style="width: 50%; margin-left: 25%"
+              />
+            </div>
+
+            <li class="fragment fade-in fade-in-then-semi-out">
+              <strong>Funcionalidades:</strong> Suporte a áudio, gráficos, loops
+              e recursividade, essenciais para composição assistida por
+              computador.
+            </li>
+            <li class="fragment fade-in fade-in-then-semi-out">
+              <strong>Bibliotecas:</strong> <code>upic</code>,
+              <code>freesound</code>, <code>score</code>, <code>loris</code>,
+              <code>orchidea</code>, <code>ji</code>, <code>spt</code>,
+            </li>
+
+            <li class="fragment fade-in fade-in-then-semi-out">
+              <strong>Pesquisa:</strong> Ferramenta essencial em estudos sobre o
+              Antescofo, Partial Tracking e outros projetos.
+            </li>
+          </ul>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                13                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-pd4web" data-transition="convex">
+          <h2><code>pd4web</code></h2>
+          <img src="pd4web.svg" alt="pd4web" style="width: 10%" />
+
+          <p>
+            O <code>pd4web</code> facilita a execução de patches do PureData
+            diretamente em navegadores, com suporte a diversos dispositivos.
+          </p>
+
+          <span style="font-size: 0.8em">
+            <ul>
+              <li class="fragment fade-in fade-in-then-semi-out">
+                <strong>Automação:</strong> Automatiza a criação de arquivos C++
+                e a compilação de PureData para WebAssembly com Emscripten. Isso
+                torna o uso de objetos externos acessível através de interfaces
+                gráficas, beneficiando artistas sem conhecimento técnico.
+              </li>
+              <li class="fragment fade-in fade-in-then-semi-out">
+                <strong>Preservação:</strong> Gera repositórios independentes
+                das versões de códigos e bibliotecas, garantindo a longevidade
+                dos projetos.
+              </li>
+              <li class="fragment fade-in fade-in-then-semi-out">
+                <strong>Segurança:</strong> Resolve vulnerabilidades comuns em
+                plataformas como Max e Pd, prevenindo a distribuição de objetos
+                maliciosos.
+              </li>
+              <li class="fragment fade-in fade-in-then-semi-out">
+                <strong>Acessibilidade Global:</strong> A capacidade de rodar
+                patches em navegadores é uma contribuição importante,
+                especialmente no Brasil, 97% da população brasileira tem acesso
+                a smartphones.
+              </li>
+            </ul>
+          </span>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                14                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-oscofo" data-transition="concave">
+          <h2 style="display: none"><code>OpenScofo</code></h2>
+          <img src="oscofo.svg" alt="oscofo" style="width: 15%" />
+
+          <div style="display: flex">
+            <div style="width: 40%">
+              <img src="oscofo-code.avif" alt="oscofo" style="width: 100%" />
+            </div>
+            <div style="width: 60%">
+              <span style="font-size: 0.7em">
+                <ul>
+                  <li class="fragment fade-in fade-in-then-semi-out">
+                    <strong>Desafio Técnico:</strong> A matemática por trás do
+                    modelo de tempo do OpenScofo foi um grande desafio,
+                    especialmente com as equações de Bessel.
+                  </li>
+                  <li class="fragment fade-in fade-in-then-semi-out">
+                    <strong>Possibilidades:</strong> A implementação de um
+                    modelo aberto. Suporte a linguagem <code>lua</code> permite
+                    criar eventos baseados em descritores (<code
+                      >timbreIDLib</code
+                    >
+                    está sendo implementada!), abrindo caminho para obras
+                    abertas.
+                  </li>
+                  <li class="fragment fade-in fade-in-then-semi-out">
+                    <strong>Pseudo-linguagem <code>scofo</code></strong
+                    >: Permite pensar a interação com fluidez e oferece um
+                    algoritmo poderoso de análise sintática.
+                  </li>
+                </ul>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                15                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-obras" data-transition="convex">
+          <h1>Obras</h1>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                16                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="pecas" data-transition="zoom">
+          <h2>Capítulo: Peças e a Desconstrução da Linearidade</h2>
+          <h4>Desconstruir uma falsa linearidade</h4>
+          <ul>
+            <li class="fragment fade-in fade-in-then-semi-out">
+              <strong>2021-2022:</strong> Nos dois primeiros anos, a pesquisa
+              foi focada em programação e matemática, explorando FFT, Partial
+              Tracking, e aprendendo C/C++, JavaScript, Python.
+            </li>
+            <li class="fragment fade-in fade-in-then-semi-out">
+              <strong>Progresso Inicial:</strong> O progresso estava fluindo bem
+              até 2022, quando compus a peça <em>Eco</em>.
+            </li>
+            <li class="fragment fade-in fade-in-then-semi-out">
+              <strong>Mudança de Perspectivas:</strong> Após a composição de
+              <em>Eco</em>, minha pesquisa passou a enfrentar grandes desafios,
+              resultando em uma espécie de colapso na pesquisa.
+            </li>
+          </ul>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                17                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-eco" data-transition="zoom">
+          <h2>Eco (2023)</h2>
+          <h3>Ensemblé Móbile – Curitiba-PR</h3>
+          <div class="fragment fade-in-then-out">
+            <img
+              src="eco.avif"
+              style="width: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.4)"
+            />
+          </div>
+          <div
+            class="fragment fade-in fade-in-then-semi-out"
+            style="position: absolute; top: 30%; left: 0; width: 100%"
+          >
+            <iframe
+              style="border-radius: 10px"
+              width="800"
+              height="500"
+              src="https://www.youtube.com/embed/XIEI7-W7t2o?si=Js-AtHv8MIuFqRFC&amp;start=171"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                18                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-moteto" data-transition="fade">
+          <h2>Moteto (2023)</h2>
+          <h3>Coral UFPR – Curitiba-PR</h3>
+          <div
+            class="fragment fade-in-then-out"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 30px;
+            "
+          >
+            <img
+              src="moteto.avif"
+              style="width: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.4)"
+            />
+            <img
+              src="moteto-score.avif"
+              style="
+                width: 50%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                margin-left: 30px;
+              "
+            />
+          </div>
+          <div
+            class="fragment fade-in fade-in-then-semi-out"
+            style="position: absolute; top: 30%; left: 0; width: 100%"
+          >
+            <iframe
+              style="border-radius: 10px"
+              width="800"
+              height="500"
+              src="https://www.youtube.com/embed/TVcHzLCmpDM?si=P6uVP7WVkQAQIc4h&amp;start=405"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                19                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-improviso" data-transition="zoom">
+          <script src="/js/talks/2025-03-Defesa/slide-improviso.js"></script>
+          <h2>Improviso I (2023)</h2>
+          <h3>Ana Carolina de Oliveira e Daniel Murray – São Paulo-SP</h3>
+          <h4>Poema: Lucas de Oliveira</h4>
+          <div style="display: flex">
+            <img
+              src="improviso.avif"
+              style="width: 50%; box-shadow: 0 0 5px rgba(0, 0, 0, 0.4)"
+            />
+            <div id="canvas-improviso" style="width: 40%; margin-left: 30px" />
+          </div>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                20                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-pandemonio" data-transition="convex">
+          <h2>Pandemônio (2024)</h2>
+          <h3>Coletivo Difluência – Juiz de Fora-MG</h3>
+          <h4>Poema: Cláudia</h4>
+          <div style="display: flex; width: 100%">
+            <img
+              src="pandemonio-patch.avif"
+              style="
+                width: 30%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                margin-right: 30px;
+              "
+            />
+            <img
+              src="pandemonio.avif"
+              style="
+                width: 30%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                margin-right: 30px;
+              "
+            />
+            <img
+              src="difluencia.avif"
+              style="
+                width: 30%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                margin-right: 30px;
+              "
+            />
+            <img
+              src="pandemonio-c.avif"
+              style="
+                width: 30%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                margin-right: 30px;
+              "
+            />
+          </div>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                21                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-roubadas" data-transition="fade">
+          <h2>Ideias Roubadas III (2024)</h2>
+
+          <div
+            class="fragment fade-in-then-out"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 30px;
+            "
+          >
+            <div style="display: flex">
+              <div style="width: 40%">
+                <img
+                  src="score1.avif"
+                  style="
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                    border-radius: 3px;
+                    margin-right: 30px;
+                  "
+                />
+              </div>
+              <div style="width: 70%; display: flex; align-items: center">
+                <img
+                  src="mix-cv.avif"
+                  style="
+                    width: 40%;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                    margin-right: 30px;
+                  "
+                />
+                <img
+                  src="ideias-patch2.avif"
+                  style="
+                    width: 40%;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                    margin-right: 30px;
+                  "
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="fragment fade-in fade-in-then-semi-out"
+            style="position: absolute; top: 30%; left: 0; width: 100%"
+          >
+            <iframe
+              width="800"
+              height="500"
+              src="https://www.youtube.com/embed/CuJsBlbFBeM?si=bAEH3ny-ayPS9loy"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                22                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-canticos" data-transition="convex">
+          <h2>Cânticos de Silício (2024)</h2>
+          <h4>Sérgio Monteiro Freire</h4>
+          <div
+            class="fragment fade-in-then-out"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 30px;
+            "
+          >
+            <img
+              src="canticos.avif"
+              style="
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                border-radius: 10px;
+                width: 80%;
+                margin: auto;
+              "
+            />
+          </div>
+          <div
+            class="fragment fade-in-then-out"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 30px;
+              position: absolute;
+              top: 30%;
+              left: 0;
+              width: 100%;
+            "
+          >
+            <iframe
+              width="800"
+              height="500"
+              src="https://www.youtube.com/embed/ym5nmBIzyh0?si=7V1m6szv-Ej7zgmA"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                23                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-considerações" data-transition="zoom">
+          <h1>Considerações Finais</h1>
+        </section>
+
+        <!--
+         !  ╭───────────────────────────────────╮
+         !  │                24                 │
+         !  ╰───────────────────────────────────╯
+        -->
+        <section id="slide-agradecimentos" data-transition="concave">
+          <h1>Agradecimentos</h1>
+          <div style="display: flex">
+            <img
+              src="capes.avif"
+              style="
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                border-radius: 10px;
+                width: 25%;
+                margin: auto;
+              "
+            />
+            <img
+              src="usp.avif"
+              style="
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                border-radius: 10px;
+                width: 25%;
+                margin: auto;
+              "
+            />
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="/js/talks/2025-03-Defesa/index.js"></script>
+  </body>
+</html>

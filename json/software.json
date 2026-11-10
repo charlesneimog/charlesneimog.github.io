@@ -1,0 +1,55 @@
+[
+    {
+        "title": "OpenScofo",
+        "description": "OpenScofo is an open-source score-following system specifically designed for contemporary music.",
+        "authors": ["Charles K. Neimog"],
+        "language": ["C++", "Wasm", "Python"],
+        "img": "images/software/oscofo.svg",
+        "imgDark": "https://charlesneimog.github.io/OpenScofo/assets/logo-dark.svg",
+        "link": "https://charlesneimog.github.io/OpenScofo"
+    },
+    {
+        "title": "pd4web",
+        "description": "Run Pure Data patches directly in web browsers, enabling live sound synthesis and algorithmic performance without programming.",
+        "authors": ["Charles K. Neimog"],
+        "language": ["C++", "JavaScript", "Wasm"],
+        "img": "images/software/pd4web.svg",
+        "link": "https://charlesneimog.github.io/pd4web"
+    },
+    {
+        "title": "py4pd",
+        "description": "py4pd allows to write PureData external objects in Python.",
+        "authors": ["Charles K. Neimog"],
+        "language": ["C", "Python"],
+        "img": "https://charlesneimog.github.io/py4pd/assets/py4pd-light-home.svg",
+        "imgDark": "https://charlesneimog.github.io/py4pd/assets/py4pd-dark-home.svg",
+        "link": "https://charlesneimog.github.io/py4pd"
+    },
+    {
+        "title": "pd-saf",
+        "description": "pd-saf implements the Spatial Audio Framework, which allows spatial audio processing capabilities up to 128 channels.",
+        "authors": ["Charles K. Neimog"],
+        "language": ["C", "Lua"],
+        "img": "images/software/saf.svg",
+        "imgDark": "images/software/saf-dark.svg",
+        "link": "https://github.com/charlesneimog/pd-saf"
+    },
+    {
+        "title": "pd-bhack",
+        "description": "This is a family of objects inspired by the BACH library for MAX, which deal with llll (lisp-like linked lists).",
+        "authors": ["Charles K. Neimog", "Alexandre Porres Torres"],
+        "language": ["Lua"],
+        "img": "images/software/bhack.svg",
+        "imgDark": "images/software/bhack-dark.svg",
+        "link": "https://github.com/EL-LOCUS-SOLUS/pd-bhack"
+    },
+    {
+        "title": "pd-upic",
+        "description": "pd-upic is a Pure Data (Pd) external object inspired by the works of Iannis Xenakis.",
+        "authors": ["Charles K. Neimog"],
+        "language": ["Lua"],
+        "img": "images/software/upic.svg",
+        "imgDark": "images/software/upic-dark.svg",
+        "link": "https://github.com/charlesneimog/pd-upic"
+    }
+]

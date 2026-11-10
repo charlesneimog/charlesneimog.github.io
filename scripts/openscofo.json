@@ -1,0 +1,119 @@
+{
+    "$schema": "./teasers.schema.json",
+    "configuration": {
+        "title": "OpenScofo",
+        "subtitle": "Real-Time Score Following and Extended-Technique Recognition",
+        "authors": ["Charles K. Neimog", "Cássia Carrascoza"],
+        "research": {
+            "enabled": true,
+            "label": "Postdoctoral Research",
+            "institution": "University of São Paulo (USP)"
+        },
+        "technology": {
+            "enabled": true,
+            "label": "Topics",
+            "items": [
+                "Score Following",
+                "Extended Techniques",
+                "Machine Learning",
+                "ONNX",
+                "Live Electronics",
+                "Smartphones"
+            ]
+        },
+        "visual": {
+            "accent": "#FFFFFF",
+            "background": "#080808",
+            "foreground": "#FFFFFF",
+            "muted": "#FFFFFF",
+            "font": "",
+            "title_weight": "BOLD",
+            "normal_weight": "NORMAL"
+        }
+    },
+    "render": {
+        "pixel_width": 1920,
+        "pixel_height": 1080,
+        "frame_rate": 60,
+        "frame_width": 16,
+        "frame_height": 9,
+        "format": "mov",
+        "transparent": true,
+        "output_dir": "media"
+    },
+    "video_screens": {
+        "title": {
+            "type": "title",
+            "image": "/home/neimog/Documents/Git/OpenScofo/Documentation/assets/logo-dark.svg",
+            "image_height": 3.5,
+            "image_color": "#FFFFFF",
+            "show_title": false,
+            "graphics": false,
+            "duration": 3,
+            "subtitle": "Real-Time Score Following and\nExtended-Technique Recognition",
+            "show_subtitle": true,
+            "show_authors": true,
+            "overlay_enabled": false
+        },
+        "learning": {
+            "type": "message",
+            "transparent": false,
+            "graphics": false,
+            "duration": 4,
+            "title": "Learning with the machine",
+            "text": "Students learn to perform with latency,\n\nambiguity, and the machine's conditional responses.",
+            "font_size": 30,
+            "max_chars_per_line": 48,
+            "max_chars_per_scene": 220,
+            "overlay_enabled": false,
+            "overlay_opacity": 0.65,
+            "overlay_padding": 0.25
+        },
+        "piece": {
+            "type": "subtitle",
+            "duration": 4,
+            "text": "Miniatura II | by Larissa Moraes",
+            "font_size": 30,
+            "max_chars_per_line": 48,
+            "max_chars_per_scene": 220,
+            "min_page_duration": 4,
+            "chars_per_second": 18
+        },
+        "piece2": {
+            "type": "subtitle",
+            "duration": 4,
+            "text": "Miniatura II | by Lucas Herrera",
+            "font_size": 30,
+            "max_chars_per_line": 48,
+            "max_chars_per_scene": 220,
+            "min_page_duration": 4,
+            "chars_per_second": 18
+        },
+        "end_card": {
+            "type": "credits",
+            "graphics": false,
+            "duration": 6,
+            "title": "OpenScofo",
+            "subtitle": "Open Source Score Follower",
+            "title_font_size": 76,
+            "subtitle_font_size": 29,
+            "font_size": 22,
+            "columns": 1,
+            "show_authors": false,
+            "show_musicians": false,
+            "overlay_enabled": false,
+            "lines": ["Cássia Carrascoza", "Charles K. Neimog"],
+            "image_height": 0.9,
+            "gap": 0.35,
+            "corner_radius": 0.05,
+            "logos": [
+                { "image": "/home/neimog/Downloads/eca.png" },
+                { "image": "/home/neimog/Downloads/capes.png" },
+                { "image": "/home/neimog/Downloads/usp.png" }
+            ],
+            "special_thanks_title": "Special thanks",
+            "special_thanks": ["Larissa Moraes", "Lucas Herrera"]
+        }
+    },
+    "scenes": ["title", "learning", "piece", "piece2", "end_card"]
+}

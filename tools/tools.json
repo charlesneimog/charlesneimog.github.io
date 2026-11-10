@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Web Whisper",
+        "link": "https://charlesneimog.github.io/web-whisper/",
+        "description": "Audio to Text (in the device), no server!"
+    },
+    {
+        "title": "OpenScofo Benchmark Annotator",
+        "link": "./score-follower-marks",
+        "description": "Mark events time stamp from audio (for OpenScofo benchmark)"
+    },
+    {
+        "title": "Create PureData Help Patches using pd-else style",
+        "link": "./else-help",
+        "description": "A tool to create PureData help patches using the pd-else style."
+    },
+    {
+        "title": "Read PDFs using AI natural voice",
+        "link": "https://charlesneimog.github.io/PocketReader/",
+        "description": "A tool to read PDFs using AI natural voice."
+    }
+    
+]

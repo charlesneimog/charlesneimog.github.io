@@ -1,0 +1,249 @@
+[
+    {
+        "title": "Nis",
+        "year": "2026",
+        "performer": "Orquestra de Flautas - USP",
+        "image": "images/music/nis2.avif",
+        "description": "NIS emerges from a world shaped by mobile devices, where the smartphone functions as an extension of attention and the body. Developed within an ongoing postdoctoral research project supervised by Cássia Carrascoza, the work explores sound interaction in digital and performative environments through real-time algorithmic spatialization driven by motion sensors and mobile-device compasses. The piece investigates how technological mediation influences movement, performative decisions, and shared listening, creating an experience in which listening, movement, and technology operate simultaneously.",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/NO0qqwnb-lk?si=iom2oNbZ1V9Fvihw",
+            "uploadDate": "2026-06-14T16:30:13-07:00",
+            "width": "640px",
+            "height": "360px"
+        },
+        "pd4web": "https://charlesneimog.github.io/Nis/",
+        "slug": "nis",
+        "aliases": [
+            "Nis"
+        ]
+    },
+    {
+        "title": "Cânticos de Silício I",
+        "year": "2025",
+        "performer": "Sérgio Monteiro Freire",
+        "image": "images/music/canticos.avif",
+        "description": "*Cânticos de Silício I* is the first work in which I used the OpenScofo system, an AI capable of synchronizing the computer and the performer. The name Cânticos de Silício (something like Silicon Chants) comes from the idea of a work that allows the sounds of the concretization of the artifact to emerge. In this particular piece, created for my PhD, trill detection needed to work for OpenScofo. Since I was studying this, I decided to make a work specifically to put the system to the test.",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/ym5nmBIzyh0",
+            "uploadDate": "2025-03-14T05:50:56-07:00",
+            "width": "640px",
+            "height": "360px"
+        },
+        "pd4web": "https://charlesneimog.github.io/Canticos-de-Silicio-I/",
+        "score": "https://raw.githubusercontent.com/charlesneimog/Canticos-de-Silicio-I/refs/heads/main/Score/Piece.pdf",
+        "slug": "canticos-de-silicio-I",
+        "aliases": [
+            "Cânticos de Silício I",
+            "Cânticos-de-Silício-I"
+        ]
+    },
+    {
+        "title": "Ideias Roubadas III",
+        "year": "2024",
+        "description": "Ideias Roubadas III is a work inspired by the proposal of the UPIC system, developed by Iannis Xenakis in collaboration with the Centre d'Etudes de Mathématique et Automatique Musicales (CEMAMu) in Paris. Like UPIC, this piece employs an approach that manipulates visual elements to generate music using PureData to render the audio. I employ the concept of instruments (inspired by Csound) to render the sounds. Each color represents a sound or a set of instructions for spacialization, envelope, and others.",
+        "performer": "Electroacoustic",
+        "image": "images/music/roubadas3.avif",
+        "link": "https://nucleomusicanova.bandcamp.com/track/ideias-roubadas-iii",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/CuJsBlbFBeM",
+            "uploadDate": "2024-04-11T17:10:22-07:00",
+            "width": "640px",
+            "height": "360px"
+        },
+        "score": "https://raw.githubusercontent.com/charlesneimog/Canticos-de-Silicio-I/refs/heads/main/Score/Piece.pdf",
+        "github": "https://raw.githubusercontent.com/charlesneimog/Ideias-Roubadas-III/main/score.svg",
+        "slug": "ideias-roubadas-III",
+        "aliases": [
+            "Ideias Roubadas III",
+            "Ideias-Roubadas-III"
+        ]
+    },
+    {
+        "title": "Pandemônio",
+        "description": "Pandemônio (2024) was commissioned by the Difluência collective and premiered in collaboration with the Ocupa Dança project. Conceived as a continuation of earlier research into accessible performance systems, the work was implemented using pd4web, relying on a Pure Data patch rather than extensive textual programming. This approach emphasizes technical simplicity and broad accessibility, enabling the realization of a musically complex piece by performers with basic musical skills, while significantly reducing the technological barriers typically associated with such works.",
+        "year": "2024",
+        "performer": "Difluência",
+        "images": [
+            "images/music/difluencia.avif",
+            "images/music/pandemonio-i.avif",
+            "images/music/pandemonio-ii.avif"
+        ],
+        "image": "images/music/difluencia.avif",
+        "link": "https://www.youtube.com/watch?v=TVcHzLCmpDM",
+        "pd4web": "https://charlesneimog.github.io/Pandemonio/",
+        "slug": "pandemonio",
+        "aliases": [
+            "Pandemônio"
+        ]
+    },
+    {
+        "title": "Improviso I",
+        "description": "Improviso I is built on a poem by Lucas Miranda titled Criação. Developed collaboratively with Ana Oliveira and Daniel Murrail, the piece explores how readings of the poem can shape musical gestures and references, aiming for a delicate and evocative atmosphere. It features a guided improvisation lasting approximately seven minutes.",
+        "year": "2023",
+        "performer": "Ana Oliveira e Daniel Murrail",
+        "image": "images/music/improviso2.avif",
+        "link": "https://charlesneimog.github.io/Improviso-I",
+        "images": [
+            "images/music/improviso.avif",
+            "images/music/improviso2.avif",
+            "images/music/improviso3.avif",
+            "images/music/improviso4.avif"
+        ],
+        "pd4web": "https://charlesneimog.github.io/Improviso-I/",
+        "slug": "improviso-I",
+        "aliases": [
+            "Improviso I",
+            "Improviso-I"
+        ]
+    },
+    {
+        "title": "Moteto",
+        "year": "2023",
+        "description": "In this work, sound feedback is mediated through a continuously updating **Fourier Transform**, converting performed pitches into new scores. The choir receives this feedback through headphones and recreates microtonal tunings guided by these pitches, forming dynamic cycles where notes, FFT analysis, and justly tuned chords interact.",
+        "performer": "Choir from Federal University of Paraná",
+        "image": "images/music/moteto.avif",
+        "link": "https://www.youtube.com/watch?v=TVcHzLCmpDM",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube-nocookie.com/embed/TVcHzLCmpDM",
+            "uploadDate": "2023-12-18T13:57:40-08:00",
+            "width": "640px",
+            "height": "360px"
+        },
+        "pd4web": "https://charlesneimog.github.io/Moteto/",
+        "github": "https://github.com/charlesneimog/Moteto",
+        "score": "https://raw.githubusercontent.com/charlesneimog/moteto/refs/heads/master/score.svg",
+        "slug": "moteto",
+        "aliases": [
+            "Moteto"
+        ]
+    },
+    {
+        "title": "Eco I",
+        "description": "_Eco I_ explores a feedback loop where sounds are analyzed through a continuously updated Fourier Transform, converted into musical scores, and reinterpreted by performers. An algorithm guides them to microtonal adjustments beyond the tempered scale, creating evolving harmonies that merge analysis and performance, with moments of consonance inspired by Harry Partch’s Just Intonation.",
+        "year": "2023",
+        "performer": "Ensemble Móbile",
+        "image": "images/music/eco1.avif",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/XIEI7-W7t2o",
+            "uploadDate": "2023-03-06T10:19:34-08:00",
+            "width": "560px",
+            "height": "315px"
+        },
+        "github": "https://github.com/charlesneimog/eco",
+        "slug": "eco-I",
+        "aliases": [
+            "Eco I",
+            "Eco-I"
+        ]
+    },
+    {
+        "title": "Ideias Roubadas II",
+        "description": "This piece is using the idea of the Meta-Instrument. It is based on the idea of transforming the guitar of the composer Arthur Kampela. I also use Luiza, by Tom Jobim. The idea of arranging the piece with contemporary techniques comes from Prof. Luiz Castelões.",
+        "year": "2022",
+        "performer": "Electroacoustic",
+        "image": "images/music/roubadasi.avif",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/zq8eIPoCfFk",
+            "uploadDate": "2023-02-06T06:30:43-08:00",
+            "width": "640px",
+            "height": "360px"
+        },
+        "slug": "ideias-roubadas-II",
+        "aliases": [
+            "Ideias Roubadas II",
+            "Ideias-Roubadas-II"
+        ]
+    },
+    {
+        "title": "Estudo Microtonal no. 5",
+        "description": "A study piece exploring the concept of an Open Work. The pitches generated by the electronics are determined randomly, producing ever-changing, unpredictable textures.",
+        "year": "2018",
+        "performer": "Rafael F. Semtchuk",
+        "image": "images/music/ramyen.avif",
+        "link": "",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/Dswdu7nkyCM",
+            "uploadDate": "2020-05-25T18:01:53-07:00",
+            "width": "560px",
+            "height": "315px"
+        },
+        "github": "https://github.com/charlesneimog/Ramyen",
+        "score": "https://raw.githubusercontent.com/charlesneimog/Ramyen/refs/heads/main/ramyen.pdf",
+        "slug": "estudo-microtonal-no-5",
+        "aliases": [
+            "Estudo Microtonal no. 5",
+            "Estudo-Microtonal-no.-5"
+        ]
+    },
+    {
+        "title": "Estudo Microtonal no. 4",
+        "description": "A work for flute and electronics, premiered by Denusa Castellain. In addition to Max/MSP, the piece uses Arshia Cont’s Antescofo software. This is the first piece in which I employ live electronics and just intonation.",
+        "year": "2018",
+        "performer": "Denusa Castellain",
+        "image": "images/music/microfolia.avif",
+        "link": "",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/RYysmzY4fZQ",
+            "uploadDate": "2019-12-17T09:43:18-08:00",
+            "width": "560px",
+            "height": "315px"
+        },
+        "score": "scores/microtonal-04.pdf",
+        "slug": "estudo-microtonal-no-4",
+        "aliases": [
+            "Estudo Microtonal no. 4",
+            "Estudo-Microtonal-no.-4"
+        ]
+    },
+    {
+        "title": "Metamorfose Inexata",
+        "description": "In this work, I explore the idea of **transposition between different tuning systems** using notes that are very similar across these systems. This approach was described by composer **Ben Johnston** and is extensively employed in his string quartets.",
+        "year": "2017",
+        "performer": "Eric Moreira",
+        "image": "images/music/metamorfoseinexata.avif",
+        "link": "",
+        "iframe": {
+            "source": "youtube",
+            "link": "https://www.youtube.com/embed/0sSRbN_qwps",
+            "uploadDate": "2018-04-04T06:51:26-07:00",
+            "width": "560px",
+            "height": "315px"
+        },
+        "score": "scores/metamorfose+bula.pdf",
+        "slug": "metamorfose-inexata",
+        "aliases": [
+            "Metamorfose Inexata",
+            "Metamorfose-Inexata"
+        ]
+    },
+    {
+        "title": "Há tempo...",
+        "description": "*Há Tempo...* is a work based on extremely slow and continuous motion, inspired by ideas from Jonathan Kramer in Moment Form in Twentieth Century Music. The piece reflects on the perception of time, continuity, and transformation through gradual sonic processes. _To remove continuity is to question the very meaning of time in our culture and hence of human existence. This questioning is going on all around us, and its strongest statement is found in contemporary art. By dealing with the resulting apparent chaos of this art, we are forced to understand our culture and thus to grow._ — Jonathan Kramer",
+        "year": "2017",
+        "performer": "Natalie Nietsche, Karina Romanó, Elisa Oliveira e Klérison Kiel Kotacho",
+        "image": "images/music/hatempo.avif",
+        "link": "",
+        "iframe": {
+            "source": "bandcamp",
+            "link": "https://bandcamp.com/EmbeddedPlayer/track=1458899454/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/",
+            "width": "450px",
+            "height": "450px",
+            "fallbackLink": "https://charlesneimog.bandcamp.com/track/h-tempo-2017",
+            "fallbackText": "Há tempo... (2017) by Charles K. Neimog"
+        },
+        "score": "scores/hatempo.pdf",
+        "slug": "ha-tempo",
+        "aliases": [
+            "Há tempo...",
+            "Há-tempo..."
+        ]
+    }
+]

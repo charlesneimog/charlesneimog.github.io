@@ -1,0 +1,78 @@
+
+            /* --- keep Staticrypt structural CSS (placeholders intact) --- */
+            .staticrypt-hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #eee; }
+            .staticrypt-page { width: 360px; padding: 8% 0 0; margin: auto; box-sizing: border-box; }
+            .staticrypt-form { position: relative; z-index: 1; max-width: 760px; margin: 0 auto 100px; padding: 45px; text-align: center; border-radius: 12px; }
+            .staticrypt-password-container { position: relative; outline: 0; width: 100%; border: 0; margin: 0 0 15px; box-sizing: border-box; }
+            .staticrypt-toggle-password-visibility { cursor: pointer; height: 20px; opacity: 60%; padding: 13px; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 20px; }
+
+            /* fallback styles for generated inputs/buttons */
+            .staticrypt-form input[type="password"], input[type="text"] {
+                background: inherit;
+                border: 0;
+                box-sizing: border-box;
+                font-size: 14px;
+                outline: 0;
+                padding: 15px 44px 15px 15px; /* space for toggle icon */
+                width: 100%;
+            }
+
+            .staticrypt-form .staticrypt-decrypt-button {
+                text-transform: none;
+                outline: 0;
+                width: 100%;
+                border: 0;
+                padding: 12px;
+                color: #fff;
+                font-size: 14px;
+                cursor: pointer;
+                border-radius: 8px;
+            }
+
+            .hidden { display: none !important; }
+            .staticrypt-spinner-container { height: 100%; display: flex; align-items: center; justify-content: center; }
+            .staticrypt-spinner { display: inline-block; width: 2rem; height: 2rem; vertical-align: text-bottom; border: 0.25em solid gray; border-right-color: transparent; border-radius: 50%; -webkit-animation: spinner-border 0.75s linear infinite; animation: spinner-border 0.75s linear infinite; }
+            @keyframes spinner-border { 100% { transform: rotate(360deg); } }
+
+            /* --- Your dark card styling overrides using Tailwind-like CSS fallbacks --- */
+            body { font-family: "Inter", sans-serif; background: #0f0f11; color: #EAEAEA; margin:0; height:100%; }
+            .page-wrapper { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:1rem; }
+            .card {
+                width: 100%;
+                max-width: 520px;
+                background: #1E1E1E;
+                border: 1px solid rgba(255,255,255,0.06);
+                border-radius: 12px;
+                padding: 2.25rem;
+                box-sizing: border-box;
+                box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+            }
+            .title { font-size: 1.5rem; font-weight:700; margin-bottom: 0.5rem; }
+            .subtitle { color: #bfbfbf; margin-bottom: 1rem; font-size: 0.95rem; }
+
+            /* style the generated password input and button to match your UI */
+            #staticrypt-password {
+                background: #121212;
+                color: #EAEAEA;
+                border: 1px solid #30303a;
+                padding: 0.75rem 3rem 0.75rem 0.75rem;
+                border-radius: 8px;
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 1rem;
+            }
+            .staticrypt-decrypt-button {
+                background: #333;
+                color: #EAEAEA;
+                font-weight: 700;
+                border-radius: 8px;
+            }
+            .staticrypt-decrypt-button:hover { background: #007BFF; }
+
+            /* position the toggle icon inside the password input area */
+            .staticrypt-password-container img.staticrypt-toggle-password-visibility {
+                right: 12px;
+            }
+
+            @media (max-width:420px){ .staticrypt-page{ width:100%; padding:6% 0 0 } .card{ padding:1.25rem } }
+        

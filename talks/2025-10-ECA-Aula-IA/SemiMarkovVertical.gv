@@ -1,0 +1,85 @@
+digraph SemiMarkovVertical {
+    rankdir=TB; // Top to bottom
+    splines=true;
+
+    // Aumentar espaçamento horizontal e vertical
+    graph [nodesep=1, ranksep=1 ];
+
+    // ----------------------------
+    // Evento 1 - Dó / Silêncio
+    // ----------------------------
+    E1 [shape=doublecircle, width=3, height=3, fixedsize=true, image="do.avif", label=""];
+    E1_Do [label="261.63 Hz", shape=circle, width=2, height=2];
+    E1_Do1 [label="261.63 Hz", shape=circle, width=2, height=2];
+    E1_Sil [label="0 Hz", shape=circle, width=2, height=2];
+    E1 -> E1_Do;
+    E1 -> E1_Do1;
+    E1 -> E1_Sil;
+
+    // ----------------------------
+    // Evento 2 - Ré / Silêncio
+    // ----------------------------
+    E2 [shape=doublecircle, width=3, height=3, fixedsize=true, image="re.avif", label=""];
+    E2_Re [label="293.66 Hz", shape=circle, width=2, height=2];
+    E2_Re1 [label="293.66 Hz", shape=circle, width=2, height=2];
+    E2_Sil [label="0 Hz", shape=circle, width=2, height=2];
+    E2 -> E2_Re;
+    E2 -> E2_Re1;
+    E2 -> E2_Sil;
+
+    // ----------------------------
+    // Evento 3 - Mi / Silêncio
+    // ----------------------------
+    E3 [shape=doublecircle, width=3, height=3, fixedsize=true, image="mi.avif", label=""];
+    E3_Mi [label="329.63 Hz", shape=circle, width=2, height=2];
+    E3_Mi1 [label="329.63 Hz", shape=circle, width=2, height=2];
+    E3_Sil [label="0 Hz", shape=circle, width=2, height=2];
+    E3 -> E3_Mi;
+    E3 -> E3_Mi1;
+    E3 -> E3_Sil;
+
+    // ----------------------------
+    // Evento 4 - Fá / Silêncio
+    // ----------------------------
+    E4 [shape=doublecircle, width=3, height=3, fixedsize=true, image="fa.avif", label=""];
+    E4_Fa [label="349.23 Hz", shape=circle, width=2, height=2];
+    E4_Fa1 [label="349.23 Hz", shape=circle, width=2, height=2];
+    E4_Sil [label="0 Hz", shape=circle, width=2, height=2];
+    E4 -> E4_Fa;
+    E4 -> E4_Fa1;
+    E4 -> E4_Sil;
+
+    // ----------------------------
+    // Evento 5 - Sol / Lá / Silêncio
+    // ----------------------------
+    E5 [shape=doublecircle, width=6, height=3, fixedsize=true, image="trilo2.avif", label=""];
+    E5_Sol [label="392.00 Hz", shape=circle, width=2, height=2];
+    E5_La [label="440.00 Hz", shape=circle, width=2, height=2];
+    E5_Sil [label="0 Hz", shape=circle, width=2, height=2];
+    E5 -> E5_Sol;
+    E5 -> E5_La;
+    E5 -> E5_Sil;
+
+    // ----------------------------
+    // Conexões horizontais entre Semi-Markovs
+    // ----------------------------
+    E1 -> E2;
+    E2 -> E3;
+    E3 -> E4;
+    E4 -> E5;
+
+    // ----------------------------
+    // Alinhamento horizontal dos Semi-Markovs
+    // ----------------------------
+    {rank=same; E1; E2; E3; E4; E5;}
+
+    // ----------------------------
+    // Alinhamento vertical dos Markovs
+    // ----------------------------
+    {rank=same; E1_Do; E1_Sil;}
+    {rank=same; E2_Re; E2_Sil;}
+    {rank=same; E3_Mi; E3_Sil;}
+    {rank=same; E4_Fa; E4_Sil;}
+    {rank=same; E5_Sol; E5_La; E5_Sil;}
+}
+

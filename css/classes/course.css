@@ -1,0 +1,53 @@
+
+            .hidden {
+                display: none !important;
+            }
+
+            .staticrypt-password-container {
+                position: relative;
+                width: 100%;
+            }
+
+            .staticrypt-toggle-password-visibility {
+                cursor: pointer;
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                opacity: 0.6;
+                transform: translateY(-50%);
+            }
+
+            .staticrypt-toggle-password-visibility:hover {
+                opacity: 1;
+            }
+
+            .course-container {
+                width: 100%;
+                max-width: 1200px;
+            }
+
+            .lesson-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 1.5rem;
+            }
+
+            .lesson-card {
+                min-width: 0;
+                height: 100%;
+            }
+
+            @media (min-width: 768px) {
+                .lesson-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            @media (min-width: 1280px) {
+                .lesson-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+            }
+        

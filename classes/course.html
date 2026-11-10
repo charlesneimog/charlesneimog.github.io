@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Curso | Classes</title>
+        <link href="/css/classes/output.css" rel="stylesheet" />
+        <link href="https://charlesneimog.github.io/css/style.css" rel="stylesheet" />
+        <link href="https://charlesneimog.github.io/fonts/Inter.css" rel="stylesheet" />
+        <link href="https://charlesneimog.github.io/fonts/Material-symbols-outlined.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/classes/course.css" />
+        <script defer src="/js/staticrypt-markdown.js?v=1"></script>
+        <script defer src="/js/course.js?v=6"></script>
+    </head>
+    <body
+        class="staticrypt-body bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary transition-colors duration-200 m-0 min-h-screen"
+    >
+        <div
+            class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center overflow-x-hidden p-4"
+            data-password-screen
+        >
+            <div
+                class="flex w-full max-w-md flex-col items-center gap-6 rounded-xl border border-course-border-light dark:border-course-border-dark bg-course-bg-light dark:bg-hover-dark p-8 md:p-12 shadow-lg"
+            >
+                <div class="w-full">
+                    <p
+                        class="text-text-light-primary dark:text-text-dark-primary tracking-tight text-3xl font-bold leading-tight text-center pb-2"
+                        data-course-title
+                    >
+                        Curso
+                    </p>
+                    <p
+                        class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-normal leading-normal text-center"
+                    >
+                        Digite a senha para acessar as aulas.
+                    </p>
+                </div>
+
+                <form id="staticrypt-form" action="#" method="post" class="flex w-full flex-col gap-4">
+                    <label class="flex flex-col w-full flex-1">
+                        <p
+                            class="text-text-light-primary dark:text-text-dark-primary text-sm font-medium leading-normal pb-2"
+                        >
+                            Senha
+                        </p>
+                        <div class="staticrypt-password-container">
+                            <input
+                                id="staticrypt-password"
+                                type="password"
+                                name="password"
+                                placeholder="Senha"
+                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light-primary dark:text-text-dark-primary focus:outline-none border border-course-border-light dark:border-course-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-1 focus:ring-primary h-12 placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary px-4 py-2 text-base font-normal leading-normal transition-colors duration-200 pr-12"
+                                autocomplete="current-password"
+                                autofocus
+                            />
+                            <img
+                                class="staticrypt-toggle-password-visibility filter dark:invert"
+                                alt="Mostrar senha"
+                                title="Mostrar senha"
+                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48cGF0aCBkPSJNMjg4IDMyYy04MC44IDAtMTQ1LjUgMzYuOC0xOTIuNiA4MC42LTQ2LjggNDMuNS03OC4xIDk1LjQtOTMgMTMxLjEtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjYgMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMSA0Ny4xIDQzLjcgMTExLjggODAuNiAxOTIuNiA4MC42czE0NS41LTM2LjggMTkyLjYtODAuNmM0Ni44LTQzLjUgNzguMS05NS40IDkzLTEzMS4xIDMuMy03LjkgMy4zLTE2LjcgMC0yNC42LTE0LjktMzUuNy00Ni4yLTg3LjctOTMtMTMxLjEtNDcuMS00My43LTExMS44LTgwLjYtMTkyLjYtODAuNnpNMTQ0IDI1NmExNDQgMTQ0IDAgMSAxIDI4OCAwIDE0NCAxNDQgMCAxIDEgLTI4OCAwem0xNDQtNjRjMCAzNS4zLTI4LjcgNjQtNjQgNjQtMTEuNSAwLTIyLjMtMy0zMS43LTguNC0xIDEwLjktLjEgMjIuMSAyLjkgMzMuMiAxMy43IDUxLjIgNjYuNCA4MS42IDExNy42IDY3LjlzODEuNi02Ni40IDY3LjktMTE3LjZjLTEyLjItNDUuNy01NS41LTc0LjgtMTAxLjEtNzAuOCA1LjMgOS4zIDguNCAyMC4xIDguNCAzMS43eiIvPjwvc3ZnPg=="
+                            />
+                        </div>
+                    </label>
+
+                    <div class="w-full pt-2">
+                        <input
+                            type="submit"
+                            class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-black dark:bg-white hover:opacity-90 dark:hover:opacity-80 text-white dark:text-black text-base font-bold leading-normal transition-opacity duration-200"
+                            value="Acessar"
+                        />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <main class="hidden min-h-screen px-4 py-20" data-course-app>
+            <section class="course-container mx-auto">
+                <a
+                    class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-classic-tech-blue transition-colors"
+                    href="index.html"
+                >
+                    <span class="material-symbols-outlined text-base">arrow_back</span>
+                    Classes
+                </a>
+
+                <header class="mt-8">
+                    <p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">
+                        Classes
+                    </p>
+                    <h1
+                        class="mt-2 text-4xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary"
+                        data-course-heading
+                    >
+                        Curso
+                    </h1>
+                    <p class="mt-3 max-w-2xl text-base text-text-light-secondary dark:text-text-dark-secondary" data-course-description>
+                        Digite a senha para carregar as aulas disponíveis.
+                    </p>
+                </header>
+                <section class="mt-10" data-lessons-section>
+                    <div class="lesson-grid" data-lessons></div>
+                </section>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+# Local Codex metadata
+.agents/
+.codex/
+
+# Editable and backup source files are not needed by GitHub Pages
+**/.mscbackup/
+*.mscz
+*.musicxml
+*.pd
+*.py
+input.css
+
+# Unlinked working assets
+2026/acordes.avif
+2026/percepcao-site.avif
+2026/partituras/ditatos/menor/padrões.mp3

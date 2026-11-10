@@ -1,0 +1,8 @@
+.reveal .fragment.instant {
+    transition: none;
+}
+
+/* Inline text needs a box for Reveal's scale and movement effects. */
+.reveal :is(strong, em, del, code, a, span).fragment:is(.zoom-in, .grow, .shrink, .fade-up, .fade-down, .fade-left, .fade-right) {
+    display: inline-block;
+}

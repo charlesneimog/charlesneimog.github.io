@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: rgba(0, 0, 0);
+    --color-background-light: #ffffff;
+    --color-background-dark: #121212;
+    --color-text-light-primary: #000000;
+    --color-text-light-secondary: #606060;
+    --color-text-light-third: #303030;
+    --color-text-dark-primary: #ffffff;
+    --color-text-dark-secondary: #a3a3a3;
+    --color-talk-bg-light: #f8fafc;
+    --color-talk-bg-dark: #020617;
+    --color-talk-surface-light: rgba(15, 23, 42, 0.04);
+    --color-talk-surface-dark: rgba(15, 23, 42, 0.65);
+    --color-talk-heading-light: #0f172a;
+    --color-talk-heading-dark: #e2e8f0;
+    --color-talk-body-light: #1f2937;
+    --color-talk-body-dark: #cbd5f5;
+    --color-talk-muted-light: #475569;
+    --color-talk-muted-dark: #94a3b8;
+    --color-talk-link-light: #0ea5e9;
+    --color-talk-link-dark: #38bdf8;
+    --color-talk-link-hover-light: #38bdf8;
+    --color-talk-link-hover-dark: #7dd3fc;
+    --color-talk-selection-light: rgba(14, 165, 233, 0.2);
+    --color-talk-selection-dark: rgba(56, 189, 248, 0.35);
+    --color-talk-border-light: rgba(15, 23, 42, 0.1);
+    --color-talk-border-dark: rgba(226, 232, 240, 0.15);
+
+    --color-hover-light: #f0f0f0;
+    --color-hover-dark: #1e1e1e;
+
+    --font-display: "Inter", sans-serif;
+
+    --radius-default: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-full: 9999px;
+}
+
+@source "../../talks/**/*.html";
+@source "../../js/talks/**/*.js";
+
+:root {
+    --p5jscanvasbg: var(--color-background-light);
+    --p5jstroke: var(--color-text-light-secondary);
+}
+
+@layer base {
+    html,
+    body {
+        font-family:
+            var(--font-display),
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: rgba(255, 255, 255);
+        --p5jscanvasbg: var(--color-background-dark);
+        --p5jstroke: var(--color-text-dark-secondary);
+    }
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+.markdown h1 {
+    @apply text-text-light-primary dark:text-text-dark-primary text-lg p-8;
+}
+
+.markdown h2 {
+    @apply text-text-light-primary dark:text-text-dark-primary
+          text-3xl md:text-4xl font-semibold leading-snug tracking-tight mt-8 mb-4;
+}
+
+.markdown p {
+    @apply text-text-light-secondary dark:text-text-dark-secondary
+          text-base md:text-lg leading-relaxed mb-5 text-justify;
+}
+
+.markdown a {
+    @apply text-blue-700 dark:text-blue-400 underline decoration-1 underline-offset-2
+          hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-200;
+}
+
+.markdown img,
+.markdown svg {
+    @apply block max-w-md my-6 mx-auto shadow-md;
+}
+
+.markdown ul,
+.markdown ol {
+    @apply text-text-light-secondary dark:text-text-dark-secondary
+          list-disc list-inside mb-5 space-y-2;
+}
+
+.markdown ol {
+    @apply list-decimal;
+}
+
+.markdown pre {
+    @apply text-text-light-primary dark:text-text-dark-primary
+          bg-background-light/40 dark:bg-background-dark/40
+          text-sm md:text-base p-5 rounded-xl overflow-x-auto mb-6 shadow-md;
+}
+
+.markdown code {
+    @apply text-text-light-primary dark:text-text-dark-primary
+          rounded-md font-mono;
+}
+
+/* REVEALS */
+.reveal.talk-theme {
+    font-family:
+        var(--font-display),
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    background-color: var(--color-background-light);
+    color: var(--color-text-light-primary);
+    font-size: clamp(1.125rem, 1.8vw, 2rem);
+    line-height: 1.65;
+}
+
+@media (prefers-color-scheme: dark) {
+    .reveal.talk-theme {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-dark-primary);
+    }
+}
+
+.reveal.talk-theme h1,
+.reveal.talk-theme h2,
+.reveal.talk-theme h3,
+.reveal.talk-theme h4 {
+    @apply text-text-light-primary dark:text-text-dark-primary mb-8;
+    color: inherit;
+    font-family: inherit;
+    letter-spacing: var(--tracking-tight);
+}
+
+.reveal.talk-theme h1 {
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 1.1;
+    font-weight: var(--font-weight-bold);
+}
+
+.reveal.talk-theme h2 {
+    font-size: clamp(3rem, 5.5vw, 4.5rem);
+    line-height: 1.15;
+    font-weight: var(--font-weight-bold);
+}
+
+.reveal.talk-theme h3 {
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    font-weight: var(--font-weight-semibold);
+}
+
+.reveal.talk-theme h4 {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    line-height: 1.25;
+    font-weight: var(--font-weight-semibold);
+}
+
+.reveal.talk-theme p,
+.reveal.talk-theme ul,
+.reveal.talk-theme ol {
+    @apply text-text-light-secondary dark:text-text-dark-secondary text-base md:text-lg leading-relaxed text-justify;
+    font-size: clamp(1.4rem, 2.1vw, 2.4rem);
+    line-height: 4;
+    color: var(--color-text-light-third);
+    margin-bottom: calc(var(--spacing) * 6);
+    font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+    .reveal.talk-theme p,
+    .reveal.talk-theme ul,
+    .reveal.talk-theme ol {
+        color: var(--color-text-dark-secondary);
+    }
+}
+
+.reveal.talk-theme p {
+    text-align: justify;
+}
+
+.reveal.talk-theme ul,
+.reveal.talk-theme ol {
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2.5);
+    text-align: justify;
+}
+
+.reveal.talk-theme ul {
+    list-style-type: disc;
+}
+
+.reveal.talk-theme ol {
+    list-style-type: decimal;
+}
+
+.reveal.talk-theme li {
+    line-height: 1.6;
+}
+
+.reveal.talk-theme a {
+    color: var(--color-talk-link-light);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition: color 200ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    .reveal.talk-theme a {
+        color: var(--color-talk-link-dark);
+    }
+}
+
+.reveal.talk-theme img,
+.reveal.talk-theme svg,
+.reveal.talk-theme video {
+    display: block;
+    max-width: var(--container-4xl);
+    margin: calc(var(--spacing) * 6) auto;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+}
+
+.reveal.talk-theme pre {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    line-height: 1.6;
+    padding: calc(var(--spacing) * 6);
+    border-radius: var(--radius-xl);
+    background-color: color-mix(in srgb, #ffffff 45%, transparent);
+    margin-bottom: calc(var(--spacing) * 6);
+    overflow-x: auto;
+    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+    .reveal.talk-theme pre {
+        background-color: color-mix(in srgb, #121212 55%, transparent);
+    }
+}
+
+.reveal.talk-theme code {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+    padding: 0.35em 0.5em;
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, #ffffff 30%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+    .reveal.talk-theme code {
+        background: color-mix(in srgb, #121212 30%, transparent);
+        color: var(--color-text-dark-primary);
+    }
+}
+
+.reveal.talk-theme section {
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+}

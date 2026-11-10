@@ -1,0 +1,63 @@
+[
+
+    {
+        "title": "Percepção II",
+        "year": 2026,
+        "path": "2026/SI-Percepção-II",
+        "language": "🇧🇷",
+        "date": "Segundo Semestre | 2026",
+        "description": "Percepção II - SI",
+        "locked": true,
+        "render": true
+    }, 
+    {
+        "title": "Percepção IV",
+        "year": 2026,
+        "path": "2026/CR-Percepção-IV",
+        "language": "🇧🇷",
+        "date": "Segundo Semestre | 2026",
+        "description": "Percepção IV - CR",
+        "locked": true,
+        "render": true
+    },
+    {
+        "title": "Percepção I",
+        "year": 2026,
+        "path": "2026/SI-Percepção-I",
+        "language": "🇧🇷",
+        "date": "Segundo Semestre | 2026",
+        "description": "Percepção I - SI",
+        "locked": true,
+        "render": true
+    }, 
+    {
+        "title": "Percepção II",
+        "year": 2026,
+        "path": "2026/CR-Percepção-II",
+        "language": "🇧🇷",
+        "date": "Segundo Semestre | 2026",
+        "description": "Percepção II - CR",
+        "locked": true,
+        "render": true
+    }, 
+    {
+        "title": "Harmonia II",
+        "year": 2026,
+        "path": "2026/LM-Harmonia-II",
+        "language": "🇧🇷",
+        "date": "Segundo Semestre | 2026",
+        "description": "Harmonia II - LM",
+        "locked": true,
+        "render": true
+    },
+    {
+        "title": "Revisão ENADE",
+        "year": 2026,
+        "path": "2026/LM-ENADE",
+        "language": "🇧🇷",
+        "date": "Revisão ENADE | 2026",
+        "description": "Revisão ENADE",
+        "locked": true,
+        "render": true
+    }
+]

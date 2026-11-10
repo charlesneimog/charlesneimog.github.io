@@ -1,0 +1,108 @@
+/* Code blocks only. Mermaid fences are converted to diagrams before display. */
+:root {
+    --code-font: "JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas,
+        "Liberation Mono", Menlo, ui-monospace, monospace;
+}
+
+.reveal pre:has(> code:not(.language-mermaid):not(.lang-mermaid)) {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.65rem;
+    box-shadow:
+        0 0 0 1px rgba(24, 24, 27, 0.02),
+        0 10px 30px rgba(24, 24, 27, 0.14);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.reveal pre > code.hljs:not(.language-mermaid):not(.lang-mermaid) {
+    background: transparent;
+    color: #27272a;
+    display: block;
+    font-family: var(--code-font);
+    font-size: 1em;
+    font-variant-ligatures: contextual;
+    font-weight: 450;
+    letter-spacing: -0.015em;
+    line-height: 1.55;
+    max-height: min(58vh, 520px);
+    overflow: auto;
+    padding: 1.15em 1.3em;
+    tab-size: 4;
+    text-align: left;
+}
+
+.reveal pre > code.hljs .hljs-comment,
+.reveal pre > code.hljs .hljs-quote {
+    color: #71717a;
+    font-style: italic;
+}
+
+.reveal pre > code.hljs .hljs-keyword,
+.reveal pre > code.hljs .hljs-selector-tag,
+.reveal pre > code.hljs .hljs-literal,
+.reveal pre > code.hljs .hljs-section,
+.reveal pre > code.hljs .hljs-link {
+    color: #7c3aed;
+    font-weight: 650;
+}
+
+.reveal pre > code.hljs .hljs-string,
+.reveal pre > code.hljs .hljs-regexp,
+.reveal pre > code.hljs .hljs-addition,
+.reveal pre > code.hljs .hljs-attribute,
+.reveal pre > code.hljs .hljs-meta .hljs-string {
+    color: #047857;
+}
+
+.reveal pre > code.hljs .hljs-number,
+.reveal pre > code.hljs .hljs-symbol,
+.reveal pre > code.hljs .hljs-bullet,
+.reveal pre > code.hljs .hljs-variable,
+.reveal pre > code.hljs .hljs-template-variable {
+    color: #b45309;
+}
+
+.reveal pre > code.hljs .hljs-title,
+.reveal pre > code.hljs .hljs-title.class_,
+.reveal pre > code.hljs .hljs-title.function_,
+.reveal pre > code.hljs .hljs-type,
+.reveal pre > code.hljs .hljs-built_in {
+    color: #a21caf;
+    font-weight: 600;
+}
+
+.reveal pre > code.hljs .hljs-params,
+.reveal pre > code.hljs .hljs-property,
+.reveal pre > code.hljs .hljs-attr {
+    color: #3f3f46;
+}
+
+.reveal pre > code.hljs .hljs-meta,
+.reveal pre > code.hljs .hljs-doctag {
+    color: #be185d;
+}
+
+.reveal pre > code.hljs .hljs-deletion {
+    color: #b91c1c;
+}
+
+.reveal pre > code.hljs .hljs-emphasis {
+    font-style: italic;
+}
+
+.reveal pre > code.hljs .hljs-strong {
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .reveal pre:has(> code:not(.language-mermaid):not(.lang-mermaid)) {
+        width: 100%;
+    }
+
+    .reveal pre > code.hljs:not(.language-mermaid):not(.lang-mermaid) {
+        font-size: 0.88em;
+        line-height: 1.45;
+        padding: 0.9em 1em;
+    }
+}

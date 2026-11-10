@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pd4Web – Enabling Interactive Music in Browsers</title>
+
+        <!-- Reveal core + theme -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css"
+            integrity="sha512-0AUO8B5ll9y1ERV/55xq3HeccBGnvAJQsVGitNac/iQCLyDTGLUBMPqlupIWp/rJg0hV3WWHusXchEIdqFAv1Q=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/solarized.min.css"
+            integrity="sha512-V8VzH1oZOKksN3BHgMaqU9mZBqST6lh6CKSGOz4/pXjOHXHvm4NdX753i8ImR18/IpQqXKG2mUUrnB/zc3nFHQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Reveal core JS -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.js"
+            integrity="sha512-35L3EFHQcGaTZ6QN9wAg9iK1hTPVCn8RGsscuXjm5JdmDRyOw+/IWJ4wavGkozQ8VDoddD7nV1psHgu/BYNpxQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <!-- MathJax 3 + Reveal math plugin -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"
+            integrity="sha512-6FaAxxHuKuzaGHWnV00ftWqP3luSBRSopnNAA2RvQH1fOfnF/A1wOfiUWF7cLIOFcfb1dEhXwo5VG3DAisocRw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/math/math.js"></script>
+
+        <!-- viz -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"
+            integrity="sha512-vnRdmX8ZxbU+IhA2gLhZqXkX1neJISG10xy0iP0WauuClu3AIMknxyDjYHEpEhi8fTZPyOCWgqUCnEafDB/jVQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"
+            integrity="sha512-1zKK2bG3QY2JaUPpfHZDUMe3dwBwFdCDwXQ01GrKSd+/l0hqPbF+aak66zYPUZtn+o2JYi1mjXAqy5mW04v3iA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <!-- Highlight plugin -->
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.js"></script>
+        <link rel="stylesheet" href="/css/talks/a11y-light.css" />
+        <script src="../../js/menu.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <link rel="stylesheet" href="/css/talks/2025-09-SBCM-pd4web/index.css" />
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!--
+         !  ╭───────────────────────────────────╮
+         !  │              Slides               │
+         !  ╰───────────────────────────────────╯
+        -->
+
+                <!-- Title -->
+                <section data-transition="fade">
+                    <h1 style="margin-top: 10%">Enabling Interactive Music Performance in Web Browsers</h1>
+                    <div style="margin-top: 5%">
+                        <p>Charles Klippel Neimog</p>
+                        <p>Rodolfo Coelho de Souza</p>
+                    </div>
+                </section>
+
+                <!-- Motivation -->
+                <section data-transition="fade">
+                    <h2>Motivation</h2>
+                    <div style="display: flex; margin-top: 5%; width: 85%; margin-inline: auto; text-align: left">
+                        <div style="flex: 1; padding-right: 20px">
+                            <ul>
+                                <li class="fragment">Complex setups: interfaces, mics, powerful computers</li>
+                                <li class="fragment">OS incompatibilities</li>
+                                <li class="fragment">Composer/tech must be present to fix issues</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1; text-align: center">
+                            <img src="pd-error-1.avif" alt="Motivation Image" style="max-width: 100%; height: auto" />
+                            <img src="pd-error-2.avif" alt="Motivation Image" style="max-width: 100%; height: auto" />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Eco example -->
+                <section data-transition="fade">
+                    <h2>Example: Eco (2022)</h2>
+                    <div
+                        style="
+                            display: flex;
+                            justify-content: center;
+                            align-items: flex-start;
+                            margin-top: 5%;
+                            gap: 20px;
+                            width: 90%;
+                            margin-inline: auto;
+                        "
+                    >
+                        <!-- Graph on the left -->
+                        <div id="graph" style="flex: 1; max-width: 50%; height: 100%; overflow: auto"></div>
+
+                        <!-- Text on the right -->
+                        <div style="flex: 1; max-width: 50%; text-align: left">
+                            <p class="fragment" style="margin-top: 0">
+                                Reality: slow Wi‑Fi, slow machines
+                                <code style="color: red; font-size: 25px">==</code> unstable rehearsal, bad concert
+                            </p>
+                            <p class="fragment"><strong>Goal:</strong> ease and reliable performance</p>
+                        </div>
+                    </div>
+
+                    <script src="/js/talks/2025-09-SBCM-pd4web/index.js"></script>
+                </section>
+
+                <!-- Eco video -->
+                <section data-transition="fade">
+                    <iframe
+                        width="900"
+                        height="500"
+                        src="https://www.youtube.com/embed/XIEI7-W7t2o?si=jwRmgBuixqQU_hlt&amp;start=182"
+                        title="Eco (excerpt)"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </section>
+
+                <!-- First steps -->
+                <section data-transition="fade">
+                    <h2>How to solve these problems?</h2>
+                    <div style="margin-top: 5%; text-align: left; width: 70%; margin-inline: auto">
+                        <ul>
+                            <li class="fragment">Attempt to concentrate on the app on the smartphone.</li>
+                            <li class="fragment">WebAssembly experiments (C in the browser)</li>
+                            <li class="fragment">
+                                Piece: <strong>Moteto</strong> → worked (4 performances; 3 without me)
+                            </li>
+                            <li class="fragment">Catch: reimplement DSP (FFT/partials) by hand in C</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Moteto video -->
+                <section data-transition="fade">
+                    <iframe
+                        width="900"
+                        height="500"
+                        src="https://www.youtube.com/embed/TVcHzLCmpDM?si=QHr4IuUI3VgfcYbD&amp;start=43"
+                        title="Moteto (excerpt)"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </section>
+
+                <!-- Enter pd4web -->
+                <section data-transition="fade">
+                    <h2>From Empd to Pd4web</h2>
+                    <div style="margin-top: 5%; text-align: left; width: 70%; margin-inline: auto">
+                        <ul>
+                            <li class="fragment">Empd: Pd→WASM, no GUI, manual compile, no externals</li>
+                            <li class="fragment">Pd4web: makes it usable for musicians (not only programmers)</li>
+                            <li class="fragment">Pd4web makes empd usable for musicians and <b>AS</b> musicians</li>
+                            <li class="fragment">One‑click deploy of Pd patches in browsers</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- What does it do -->
+                <section data-transition="fade">
+                    <h2>What does Pd4web do?</h2>
+                    <div style="margin-top: 5%; text-align: left; width: 70%; margin-inline: auto">
+                        <ul>
+                            <li class="fragment">Automated compilation</li>
+                            <li class="fragment">Detects/installs externals used in the patch</li>
+                            <li class="fragment">GUI + ready website templates</li>
+                        </ul>
+                        <p class="fragment" style="margin-top: 5%">
+                            <strong>In short:</strong> deploy Pd patches with externals + GUIs, fast.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Key advances: externals -->
+                <section data-transition="fade">
+                    <h2>Key Advances: 1) Externals</h2>
+                    <strong>More than 1000+ externals</strong>
+                    <div>
+                        <ul>
+                            <li class="fragment">
+                                12 major libraries (e.g., <em>else</em>, <em>cyclone</em>) → 1000+ externals
+                            </li>
+                            <li class="fragment">
+                                Complex libs compiled (spatialization, partial-tracking, spectrum analysis.)
+                                <img width="40%" src="./sparta.avif" alt="Sparta" />
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Key advances: graphics -->
+                <section data-transition="fade">
+                    <h2>Key Advances: 1) Externals</h2>
+                    <div>
+                        <h3>2) Graphics with pdlua</h3>
+                        <ul>
+                            <li class="fragment">Responsive GUIs</li>
+                            <li class="fragment">Runs smoothly on low‑cost smartphones</li>
+                        </ul>
+                        <div class="fragment" style="display: flex; gap: 10px; align-items: center">
+                            <img width="40%" src="./gui-dark.avif" alt="GUI" />
+                            <video width="40%" controls>
+                                <source src="./pd4web.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key advances: Osfoco -->
+                <section data-transition="fade">
+                    <h2>Key Advances: 1) Externals</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 20px">
+                        <div style="flex: 1">
+                            <h3>3) Easy Integration with personal projects</h3>
+                            <ul>
+                                <li class="fragment">Share pieces for rehearsal without installing Pd</li>
+                                <li class="fragment">No dedicated/expensive hardware required</li>
+                            </ul>
+                            <br />
+                            <iframe
+                                width="560"
+                                height="315"
+                                src="https://www.youtube.com/embed/ym5nmBIzyh0?si=fIQ34ffOT1SHTpCo"
+                                title="Osfoco"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                        <div style="flex: 1">
+                            <img src="./smartphone-s21.avif" style="width: 50%" alt="Smartphone" />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Accessibility -->
+                <section data-transition="fade">
+                    <h2>Key Advances: 2) Accessibility</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 20px">
+                        <div style="flex: 1">
+                            <ul>
+                                <li class="fragment">
+                                    <strong>Technical:</strong> open in a browser; install as PWA (offline,
+                                    auto‑updates)
+                                </li>
+                                <li class="fragment"><strong>Financial:</strong> runs on regular smartphones</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1">
+                            <img width="60%" src="ipad1.avif" alt="iPad 1" />
+                            <img width="60%" src="ipad2.avif" alt="iPad 2" />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Preservation -->
+                <section data-transition="fade">
+                    <h2>Key Advances: 3) Preservation</h2>
+                    <div>
+                        <p>Patch + externals + code in a single repository → easier to rebuild works later</p>
+                    </div>
+                </section>
+
+                <!-- Audience: performers -->
+                <section data-transition="fade">
+                    <h2>Who Is It For?</h2>
+                    <p><b>Three main groups</b></p>
+                    <ul>
+                        <li>1) Performers (not just professionals).</li>
+                        <li>2) Composers who use Pd.</li>
+                        <li>3) Composers + Web Developers</li>
+                    </ul>
+                </section>
+
+                <section data-transition="fade">
+                    <h2>1) Performers</h2>
+                    <div
+                        style="
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            gap: 10px;
+                            width: 100%;
+                        "
+                    >
+                        <img src="iphone2.avif" alt="Performer" style="width: 20%; height: auto" />
+                        <img src="iphone1.avif" alt="Performer" style="width: 20%; height: auto" />
+                        <img src="smartphone-s21.avif" alt="Phone" style="width: 20%; height: auto" />
+                    </div>
+                </section>
+
+                <!-- Audience: Pd composers -->
+                <section data-transition="fade">
+                    <h2>2) Composers who use Pd</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 20px">
+                        <div style="flex: 1">
+                            <ul>
+                                <li>
+                                    <strong>Composers that work with Pd:</strong> build with <i>pd4web.compiler</i>.
+                                </li>
+                            </ul>
+                            <img width="60%" src="pd4web-review.avif" alt="pd4web compiler" />
+                        </div>
+                        <div style="flex: 1">
+                            <img src="templates.avif" alt="Templates" />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Audience: devs -->
+                <section data-transition="fade">
+                    <h2>3) Composers/Programmers</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 20px">
+                        <div style="flex: 1">
+                            <strong>Init</strong>
+                            <pre><code class="language-javascript">
+var Pd4Web = null;
+Pd4WebModule().then((Module) =&gt; {
+  Pd4Web = new Module.Pd4Web();
+  Pd4Web.openPatch("index.pd", {
+    canvasId: "Pd4WebCanvas",
+    soundToggleId: "Pd4WebAudioSwitch",
+    patchZoom: 2,
+    projectName: "MyProject",
+    channelCountIn: 1,
+    channelCountOut: 2,
+    sampleRate: 48000,
+    renderGui: true,
+    requestMidi: false,
+    fps: 0, // browser chooses
+  });
+});
+              </code></pre>
+                        </div>
+                        <div style="flex: 1">
+                            <strong>JS ↔ Pd</strong>
+                            <pre><code class="language-javascript">
+// Receive
+Pd4Web.onBangReceived("r-test", (r) =&gt; console.log("Bang from", r));
+Pd4Web.onFloatReceived("r-test", (r,f) =&gt; console.log("Float:", f));
+Pd4Web.onSymbolReceived("r-test", (r,s) =&gt; console.log("Symbol:", s));
+Pd4Web.onListReceived("r-test", (r,l) =&gt; console.log("List:", l));
+
+// Send
+Pd4Web.sendBang("s-test");
+Pd4Web.sendFloat("s-test", 42);
+Pd4Web.sendSymbol("s-test", "test");
+Pd4Web.sendList("s-test", [1, "hi", "message"]);
+              </code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Limitations -->
+                <section data-transition="fade">
+                    <h2>Limitations</h2>
+                    <ul>
+                        <li class="fragment">WebAudio latency ≈ 2–40 ms (device‑dependent)</li>
+                        <li class="fragment">WASM slower than native C</li>
+                    </ul>
+                </section>
+
+                <!-- Examples 1 -->
+                <section data-transition="fade">
+                    <h2>Examples</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 20px">
+                        <div style="flex: 1">
+                            <strong>Improviso I</strong>
+                            <img src="./improviso.avif" alt="Improviso I" />
+                            <p style="font-size: 16px"><i>Charles K. Neimog</i></p>
+                        </div>
+                        <div style="flex: 1">
+                            <strong>cartoP5</strong>
+                            <img src="./cartop5.avif" alt="cartoP5" />
+                            <p style="font-size: 16px"><i>Jean‑Yves Gratius</i></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Examples 2 -->
+                <!-- Slide 1: Images -->
+                <section data-transition="fade">
+                    <h2>Examples</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 20px">
+                        <div style="flex: 1">
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px">
+                                <!-- Image 1 -->
+                                <div style="flex: 1; text-align: center">
+                                    <img src="./bia.avif" alt="BiA" style="width: 100%; height: auto" />
+                                    <strong>BiA | pd4web</strong>
+                                </div>
+                                <!-- Image 2 -->
+                                <div style="flex: 1; text-align: center">
+                                    <img src="./ml5.avif" alt="ml5" style="width: 100%; height: auto" />
+                                    <strong>ml5 | pd4web</strong>
+                                </div>
+                                <!-- Image 3 -->
+                                <div style="flex: 1; text-align: center">
+                                    <img src="./p5js.avif" alt="p5js" style="width: 100%; height: auto" />
+                                    <strong>p5js | pd4web</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 2: Future projects -->
+                <section data-transition="fade">
+                    <h2>Future Projects</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 20px">
+                        <div style="flex: 1">
+                            <ul>
+                                <li>GaiaSenses (climate sonification)</li>
+                                <li>VSAT‑AUDIENCE, Virtual Storytelling Application</li>
+                                <li>Educational: BiA & Cartilha</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Future -->
+                <section data-transition="fade">
+                    <h2>Future Directions</h2>
+                    <ul>
+                        <li class="fragment">Lower‑latency WebAudio on smartphones</li>
+                        <li class="fragment">Direct device‑to‑device collaboration</li>
+                        <li class="fragment">More templates for composers</li>
+                    </ul>
+                </section>
+
+                <!-- Conclusion -->
+                <section data-transition="fade">
+                    <h2>Conclusion</h2>
+                    <div style="margin-top: 5%; text-align: left; width: 70%; margin-inline: auto">
+                        <ul>
+                            <li>Pd4web lowers technical & financial barriers</li>
+                            <li>Usability, accessibility, preservation for live‑electronics</li>
+                            <li>Already useful in performance, rehearsal, education</li>
+                        </ul>
+                        <p class="fragment" style="margin-top: 5%; font-weight: bold">Thank you!</p>
+                    </div>
+                </section>
+
+                <!--
+         !  ╭───────────────────────────────────╮
+         !  │           Fim de Slides           │
+         !  ╰───────────────────────────────────╯
+        -->
+            </div>
+        </div>
+
+        <script src="/js/talks/2025-09-SBCM-pd4web/index-2.js"></script>
+    </body>
+</html>

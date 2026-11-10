@@ -1,0 +1,184 @@
+@font-face {
+    font-family: "League Gothic";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://charlesneimog.github.io/fonts/LeagueGothic-Regular.ttf") format("truetype");
+}
+
+.reveal ul,
+.reveal ol {
+    display: block;
+    margin-left: 2em;
+    text-align: left;
+}
+
+.reveal {
+    background: #ffffff;
+    --r-main-font: "Inter", sans-serif;
+    --r-heading-font: "League Gothic", Impact, sans-serif;
+    font-family: var(--r-main-font);
+}
+.reveal pre,
+.reveal code {
+    line-height: 2;
+}
+.reveal li {
+    line-height: 1.5;
+}
+.reveal {
+    color: black;
+}
+
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child {
+    margin-top: 0;
+}
+
+.reveal .slides section.title-slide {
+    align-items: center;
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    min-height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+.reveal .slides section.title-slide > h1:first-child,
+.reveal .slides section.title-slide > h2:first-child {
+    margin: 0;
+}
+
+.reveal qrcode.slide-qrcode {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+    box-sizing: border-box;
+    display: block;
+    margin: 24px auto;
+    max-width: 70vw;
+    padding: 10px;
+    width: 240px;
+}
+
+.reveal qrcode.slide-qrcode svg {
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: auto;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+}
+
+.reveal .logos {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.reveal .logos img {
+    flex-shrink: 0;
+    height: 100px;
+    margin: 0;
+    max-height: 100px;
+    object-fit: contain;
+    width: auto;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+    color: black;
+    font-family: var(--r-heading-font);
+}
+
+.mermaid {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 0;
+}
+
+
+.mermaid svg text,
+.mermaid svg tspan {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 900px) {
+    html.class-slides {
+        --r-block-margin: 12px;
+        --r-heading1-size: 2.4em;
+        --r-heading2-size: 1.75em;
+        --r-heading3-size: 1.3em;
+        --r-main-font-size: 24px;
+    }
+
+    html.class-slides .reveal .slides section {
+        box-sizing: border-box;
+        padding: 24px 20px;
+    }
+
+    html.class-slides .reveal .slides section[hidden] {
+        display: none !important;
+    }
+
+    html.class-slides .reveal .slides section.title-slide {
+        padding: 24px;
+    }
+
+    html.class-slides .reveal ul,
+    html.class-slides .reveal ol {
+        margin-left: 1.25em;
+        padding-left: 0.4em;
+    }
+
+    html.class-slides .reveal li {
+        line-height: 1.35;
+    }
+
+    html.class-slides .reveal pre,
+    html.class-slides .reveal code {
+        line-height: 1.4;
+    }
+
+    html.class-slides .reveal table {
+        display: block;
+        font-size: 0.72em;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    html.class-slides .reveal .waveform {
+        min-width: 0;
+        width: 100%;
+    }
+
+    html.class-slides .reveal .audio-wave-group {
+        align-items: stretch !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    html.class-slides .reveal .audio-wave-group > * {
+        width: 100% !important;
+    }
+
+    html.class-slides .reveal .audio-wave-wrapper {
+        margin-bottom: 8px !important;
+        margin-top: 8px !important;
+    }
+
+    html.class-slides .reveal .audio-wave-card {
+        box-sizing: border-box;
+        padding: 12px !important;
+        width: 92% !important;
+    }
+}

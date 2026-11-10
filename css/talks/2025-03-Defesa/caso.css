@@ -1,0 +1,53 @@
+
+      /* define --r-main-color variable */
+      :root {
+        --r-main-color: #000000; /* Example: blue color */
+        --r-heading-color: #000000;
+        --r-main-font-size: 35px;
+      }
+
+      .reveal {
+        background: #ffffff;
+        font-family: "League Gothic, Impact, sans-serif";
+      }
+      canvas {
+        border-radius: 15px; /* Define o raio das bordas arredondadas */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra */
+      }
+      img {
+        border-radius: 10px;
+      }
+
+      .reveal pre,
+      .reveal code {
+        line-height: 2;
+      }
+      .reveal li {
+        line-height: 1.5;
+      }
+      .reveal {
+        color: black;
+      }
+      .reveal h1,
+      h2,
+      h3,
+      h4 {
+        color: black;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: black;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #a8b0b6; /* Cor cinza clara */
+        margin: auto;
+        margin-top: 30px;
+        margin-botoom: 30px;
+        width: 80%; /* Largura da linha */
+      }
+    
