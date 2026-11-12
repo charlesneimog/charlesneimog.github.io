@@ -213,6 +213,53 @@ class SimpleP2P {
     }
 
     // ─────────────────────────────────────
+    _withOpusChannelPreferences(description) {
+        const originalSdp = description?.sdp;
+        if (!originalSdp) return description;
+
+        const opusPayloadTypes = [
+            ...originalSdp.matchAll(/^a=rtpmap:(\d+)[ \t]+opus\/48000\/2[ \t]*(?=\r?$)/gim),
+        ].map((match) => match[1]);
+        if (!opusPayloadTypes.length) return description;
+
+        const eol = originalSdp.includes("\r\n") ? "\r\n" : "\n";
+        let sdp = originalSdp;
+
+        for (const payloadType of opusPayloadTypes) {
+            const fmtpPattern = new RegExp(`^a=fmtp:${payloadType}\\s+([^\\r\\n]*)`, "im");
+            const applyChannelPreferences = (value) => {
+                const parameters = value
+                    .split(";")
+                    .map((parameter) => parameter.trim())
+                    .filter(Boolean)
+                    .filter((parameter) => !/^(?:stereo|sprop-stereo)\s*=/i.test(parameter));
+
+                // stereo describes what this browser can receive. sprop-stereo
+                // describes what it plans to send, which remains mono here.
+                parameters.push("stereo=1", "sprop-stereo=0");
+                return parameters.join(";");
+            };
+
+            if (fmtpPattern.test(sdp)) {
+                sdp = sdp.replace(fmtpPattern, (_line, parameters) => {
+                    return `a=fmtp:${payloadType} ${applyChannelPreferences(parameters)}`;
+                });
+                continue;
+            }
+
+            const rtpmapPattern = new RegExp(
+                `^a=rtpmap:${payloadType}[ \\t]+opus\\/48000\\/2[ \\t]*(?=\\r?$)`,
+                "im",
+            );
+            sdp = sdp.replace(rtpmapPattern, (line) => {
+                return `${line}${eol}a=fmtp:${payloadType} stereo=1;sprop-stereo=0`;
+            });
+        }
+
+        return { type: description.type, sdp };
+    }
+
+    // ─────────────────────────────────────
     _normalizeDirection(direction) {
         const value = String(direction || "").toLowerCase();
         if (Object.values(SimpleP2P.Direction).includes(value)) return value;
@@ -334,7 +381,8 @@ class SimpleP2P {
             try {
                 peer.makingOffer = true;
 
-                await pc.setLocalDescription();
+                const offer = this._withOpusChannelPreferences(await pc.createOffer());
+                await pc.setLocalDescription(offer);
 
                 this.ws.send(
                     JSON.stringify({
@@ -380,7 +428,8 @@ class SimpleP2P {
             await this._configureMediaAnswer(pc, description, "video");
 
             await this._flushPendingCandidates(peer);
-            await pc.setLocalDescription();
+            const answer = this._withOpusChannelPreferences(await pc.createAnswer());
+            await pc.setLocalDescription(answer);
             this.ws.send(
                 JSON.stringify({
                     type: "answer",

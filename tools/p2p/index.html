@@ -512,7 +512,7 @@
                                 autoGainControl: false,
                                 sampleRate: { ideal: 48000 },
                                 sampleSize: { ideal: 24 },
-                                channelCount: { ideal: 2 },
+                                channelCount: { ideal: 1 },
                                 latency: { ideal: 0 },
                             };
                             if (supportedConstraints.voiceIsolation) audioConstraints.voiceIsolation = false;
@@ -534,6 +534,8 @@
                             analyser = audioContext.createAnalyser();
                             analyser.fftSize = 1024;
                             destination = audioContext.createMediaStreamDestination();
+                            destination.channelCount = 1;
+                            destination.channelCountMode = "explicit";
                             source.connect(gainNode);
                             gainNode.connect(analyser);
                             analyser.connect(destination); // Não conectar aos alto-falantes: evita microfonia.
