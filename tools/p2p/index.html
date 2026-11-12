@@ -502,8 +502,9 @@
                     startingMicrophone = (async () => {
                         let stream = null;
                         try {
-                            if (!navigator.mediaDevices?.getUserMedia)
+                            if (!navigator.mediaDevices?.getUserMedia){
                                 throw new Error("Microfone indisponível neste navegador ou conexão HTTP.");
+                            }
                             stream = await navigator.mediaDevices.getUserMedia({
                                 audio: {
                                     echoCancellation: false,
@@ -513,6 +514,9 @@
                                     channelCount: { ideal: 1 },
                                     latency: { ideal: 0 },
                                 },
+                            });
+                            stream.getAudioTracks().forEach((track) => {
+                                track.contentHint = "music";
                             });
                             const AudioContextClass = window.AudioContext || window.webkitAudioContext;
                             if (!AudioContextClass) throw new Error("Web Audio não suportado.");
@@ -532,6 +536,7 @@
                             analyser.connect(destination); // Não conectar aos alto-falantes: evita microfonia.
                             inputStream = stream;
                             stream.getAudioTracks().forEach((track) =>
+                                track.contentHint = "music";
                                 track.addEventListener(
                                     "ended",
                                     () => {
