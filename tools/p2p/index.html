@@ -304,7 +304,6 @@
                         />
                     </div>
                     <button class="button" id="connect" type="submit" disabled>Conectar</button>
-                    <button class="button secondary" id="play" type="button" disabled>Iniciar performance</button>
                 </form>
                 <div class="audio" aria-label="Entrada de microfone">
                     <div
@@ -356,7 +355,6 @@
                 const usernameInput = $("#username");
                 const form = $("#identity-form");
                 const connectButton = $("#connect");
-                const playButton = $("#play");
                 const status = $("#status");
                 const micButton = $("#mic-toggle");
                 const micStatus = $("#mic-status");
@@ -424,7 +422,6 @@
                     connectButton.textContent = joined ? "Desconectar" : "Conectar";
                     roomInput.disabled = joined || state === "connecting";
                     usernameInput.disabled = joined || state === "connecting";
-                    playButton.disabled = state !== "connected";
                     updateConnectButton();
                 }
 
@@ -508,11 +505,21 @@
                             if (!navigator.mediaDevices?.getUserMedia)
                                 throw new Error("Microfone indisponível neste navegador ou conexão HTTP.");
                             stream = await navigator.mediaDevices.getUserMedia({
-                                audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
+                                audio: {
+                                    echoCancellation: false,
+                                    noiseSuppression: false,
+                                    autoGainControl: false,
+                                    sampleRate: { ideal: 48000 },
+                                    channelCount: { ideal: 1 },
+                                    latency: { ideal: 0 },
+                                },
                             });
                             const AudioContextClass = window.AudioContext || window.webkitAudioContext;
                             if (!AudioContextClass) throw new Error("Web Audio não suportado.");
-                            audioContext = new AudioContextClass();
+                            audioContext = audioContext = new AudioContextClass({
+                                sampleRate: 48000,
+                                latencyHint: "interactive",
+                            });
                             await audioContext.resume();
                             const source = audioContext.createMediaStreamSource(stream);
                             gainNode = audioContext.createGain();
@@ -524,10 +531,16 @@
                             gainNode.connect(analyser);
                             analyser.connect(destination); // Não conectar aos alto-falantes: evita microfonia.
                             inputStream = stream;
-                            stream.getAudioTracks().forEach((track) => track.addEventListener("ended", () => {
-                                stopMicrophone();
-                                Promise.resolve(handlers.onMicrophoneChange?.(null)).catch(console.error);
-                            }, { once: true }));
+                            stream.getAudioTracks().forEach((track) =>
+                                track.addEventListener(
+                                    "ended",
+                                    () => {
+                                        stopMicrophone();
+                                        Promise.resolve(handlers.onMicrophoneChange?.(null)).catch(console.error);
+                                    },
+                                    { once: true },
+                                ),
+                            );
                             micButton.textContent = "Desativar mic";
                             micStatus.textContent = "Microfone ativo";
                             drawMeter();

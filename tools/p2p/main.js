@@ -1,5 +1,4 @@
 const ui = window.performanceUI;
-const playButton = document.querySelector("#play");
 const countdown = document.querySelector("#countdown");
 const countdownValue = document.querySelector("#countdown-value");
 const countdownLabel = document.querySelector("#countdown-label");
@@ -55,8 +54,6 @@ function updateConnectionStatus(p2pClient = client) {
     } else {
         ui.setConnectionState("waiting", `Na sala ${selectedRoom} · aguardando Pd (main)`);
     }
-
-    playButton.disabled = countdownTimer !== null || !isMainConnected(p2pClient);
 }
 
 // ─────────────────────────────────────
@@ -75,8 +72,6 @@ function disconnect() {
 
     stopCountdown();
     stopAllRemoteAudio();
-    playButton.hidden = false;
-    playButton.disabled = true;
 
     if (oldClient) oldClient.disconnect();
     ui.stopMicrophone();
@@ -100,7 +95,6 @@ function startCountdown() {
     countdownValue.hidden = false;
     countdownValue.textContent = String(seconds);
     countdown.hidden = false;
-    playButton.disabled = true;
 
     function tick() {
         if (client !== sendingClient || !isMainConnected(sendingClient)) {
@@ -119,7 +113,6 @@ function startCountdown() {
         countdownTimer = null;
         sendingClient.broadcast("start");
         countdown.hidden = true;
-        playButton.hidden = true;
     }
 
     countdownTimer = setTimeout(tick, 1000);
@@ -203,7 +196,6 @@ async function joinRoom({ room, username }) {
     disconnect();
     selectedRoom = room;
     selectedUsername = username;
-    playButton.hidden = false;
     ui.setConnectionState("connecting", "Ativando microfone…");
 
     try {
@@ -283,10 +275,7 @@ async function updateMicrophoneStream(stream) {
     const activeClient = client;
     if (!activeClient) return;
 
-    await activeClient.addAudioStream(
-        stream,
-        stream ? SimpleP2P.Direction.SendRecv : SimpleP2P.Direction.RecvOnly,
-    );
+    await activeClient.addAudioStream(stream, stream ? SimpleP2P.Direction.SendRecv : SimpleP2P.Direction.RecvOnly);
 }
 
 // ─────────────────────────────────────
@@ -296,5 +285,4 @@ ui.setHandlers({
     onMicrophoneChange: updateMicrophoneStream,
 });
 
-playButton.addEventListener("click", startCountdown);
 window.addEventListener("beforeunload", disconnect);
