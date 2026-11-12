@@ -204,7 +204,12 @@ async function joinRoom({ room, username }) {
         if (selectedUsername !== username || selectedRoom !== room) return;
 
         // p2p.js builds a URL with ?room=... without escaping the room value.
-        const nextClient = new SimpleP2P(encodeURIComponent(room), username);
+        const nextClient = new SimpleP2P(encodeURIComponent(room), username, {
+            audio: {
+                codec: "audio/opus",
+                maxBitrate: 510000,
+            },
+        });
         client = nextClient;
 
         nextClient.onConnect = () => {

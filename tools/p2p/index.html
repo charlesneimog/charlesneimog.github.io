@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
-        <title>Fragmentos de algo que não está lá</title>
+        <title>P2P - University of São Paulo</title>
         <style>
             :root {
                 color-scheme: light;
@@ -274,7 +274,7 @@
     <body>
         <header class="toolbar">
             <div class="toolbar-top">
-                <h1>Fragmentos de algo que não está lá</h1>
+                <h1>P2P v0.3.0</h1>
                 <div id="status" data-state="disconnected" role="status" aria-live="polite">Desconectado</div>
             </div>
             <div class="toolbar-bottom">
@@ -502,25 +502,28 @@
                     startingMicrophone = (async () => {
                         let stream = null;
                         try {
-                            if (!navigator.mediaDevices?.getUserMedia){
+                            if (!navigator.mediaDevices?.getUserMedia) {
                                 throw new Error("Microfone indisponível neste navegador ou conexão HTTP.");
                             }
-                            stream = await navigator.mediaDevices.getUserMedia({
-                                audio: {
-                                    echoCancellation: false,
-                                    noiseSuppression: false,
-                                    autoGainControl: false,
-                                    sampleRate: { ideal: 48000 },
-                                    channelCount: { ideal: 1 },
-                                    latency: { ideal: 0 },
-                                },
-                            });
+                            const supportedConstraints = navigator.mediaDevices.getSupportedConstraints?.() ?? {};
+                            const audioConstraints = {
+                                echoCancellation: false,
+                                noiseSuppression: false,
+                                autoGainControl: false,
+                                sampleRate: { ideal: 48000 },
+                                sampleSize: { ideal: 24 },
+                                channelCount: { ideal: 2 },
+                                latency: { ideal: 0 },
+                            };
+                            if (supportedConstraints.voiceIsolation) audioConstraints.voiceIsolation = false;
+
+                            stream = await navigator.mediaDevices.getUserMedia({ audio: audioConstraints });
                             stream.getAudioTracks().forEach((track) => {
                                 track.contentHint = "music";
                             });
                             const AudioContextClass = window.AudioContext || window.webkitAudioContext;
                             if (!AudioContextClass) throw new Error("Web Audio não suportado.");
-                            audioContext = audioContext = new AudioContextClass({
+                            audioContext = new AudioContextClass({
                                 sampleRate: 48000,
                                 latencyHint: "interactive",
                             });
@@ -535,8 +538,10 @@
                             gainNode.connect(analyser);
                             analyser.connect(destination); // Não conectar aos alto-falantes: evita microfonia.
                             inputStream = stream;
-                            stream.getAudioTracks().forEach((track) =>
+                            destination.stream.getAudioTracks().forEach((track) => {
                                 track.contentHint = "music";
+                            });
+                            stream.getAudioTracks().forEach((track) => {
                                 track.addEventListener(
                                     "ended",
                                     () => {
@@ -544,8 +549,8 @@
                                         Promise.resolve(handlers.onMicrophoneChange?.(null)).catch(console.error);
                                     },
                                     { once: true },
-                                ),
-                            );
+                                );
+                            });
                             micButton.textContent = "Desativar mic";
                             micStatus.textContent = "Microfone ativo";
                             drawMeter();

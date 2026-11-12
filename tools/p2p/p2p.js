@@ -1,8 +1,14 @@
 class SimpleP2P {
-    constructor(room, name, serverUrl = "wss://p2p-signaling.charlesneimog.workers.dev") {
+    constructor(room, name, options = {}) {
+        const normalizedOptions = typeof options === "string" ? { serverUrl: options } : options || {};
         this.room = room;
         this.name = name;
-        this.serverUrl = serverUrl;
+        this.serverUrl = normalizedOptions.serverUrl || "wss://p2p-signaling.charlesneimog.workers.dev";
+        this.audioConfig = {
+            codec: "audio/opus",
+            maxBitrate: 510000,
+            ...normalizedOptions.audio,
+        };
         this.myId = null;
         this.ws = null;
         this.connectReady = Promise.resolve();
@@ -160,12 +166,49 @@ class SimpleP2P {
         if (transceiver?.sender) {
             await transceiver.sender.replaceTrack(this._directionSends(direction) ? track : null);
             transceiver.direction = direction;
+            this._setCodecPreference(transceiver, kind);
+            await this._configureSender(transceiver.sender, kind);
         } else if (!peer.isPolite) {
+            let nextTransceiver;
             if (track && this._directionSends(direction)) {
-                peer.pc.addTransceiver(track, { direction });
+                nextTransceiver = peer.pc.addTransceiver(track, { direction });
             } else {
-                peer.pc.addTransceiver(kind, { direction });
+                nextTransceiver = peer.pc.addTransceiver(kind, { direction });
             }
+            this._setCodecPreference(nextTransceiver, kind);
+            await this._configureSender(nextTransceiver.sender, kind);
+        }
+    }
+
+    // ─────────────────────────────────────
+    _setCodecPreference(transceiver, kind) {
+        if (kind !== "audio" || typeof transceiver?.setCodecPreferences !== "function") return;
+
+        const getCapabilities = globalThis.RTCRtpSender?.getCapabilities || globalThis.RTCRtpReceiver?.getCapabilities;
+        const capabilities = getCapabilities?.call(globalThis.RTCRtpSender || globalThis.RTCRtpReceiver, "audio");
+        const preferredCodecs = capabilities?.codecs?.filter(
+            (codec) => codec.mimeType?.toLowerCase() === this.audioConfig.codec.toLowerCase(),
+        );
+
+        if (preferredCodecs?.length) transceiver.setCodecPreferences(preferredCodecs);
+    }
+
+    // ─────────────────────────────────────
+    async _configureSender(sender, kind) {
+        if (kind !== "audio" || typeof sender?.getParameters !== "function") return;
+
+        const parameters = sender.getParameters();
+        if (!parameters.encodings?.length || typeof sender.setParameters !== "function") return;
+
+        for (const encoding of parameters.encodings) {
+            encoding.maxBitrate = this.audioConfig.maxBitrate;
+        }
+
+        try {
+            await sender.setParameters(parameters);
+        } catch (error) {
+            // Some older WebRTC implementations expose setParameters but reject bitrate changes.
+            this.onLog(`Could not set the Opus bitrate: ${error.message}`);
         }
     }
 
@@ -232,10 +275,15 @@ class SimpleP2P {
         if (!peer.isPolite) {
             for (const [kind, direction] of Object.entries(this.mediaDirections)) {
                 const track = this.localStream?.getTracks().find((localTrack) => localTrack.kind === kind) || null;
+                let transceiver;
                 if (track && this._directionSends(direction)) {
-                    pc.addTransceiver(track, { direction });
+                    transceiver = pc.addTransceiver(track, { direction });
                 } else if (direction === SimpleP2P.Direction.RecvOnly) {
-                    pc.addTransceiver(kind, { direction });
+                    transceiver = pc.addTransceiver(kind, { direction });
+                }
+                if (transceiver) {
+                    this._setCodecPreference(transceiver, kind);
+                    void this._configureSender(transceiver.sender, kind);
                 }
             }
         } else {
@@ -368,6 +416,7 @@ class SimpleP2P {
             .find((t) => t.receiver?.track?.kind === kind || t.sender?.track?.kind === kind);
 
         if (!transceiver) return;
+        this._setCodecPreference(transceiver, kind);
 
         const answerDirection = this._answerDirection(offerDirection, desiredDirection, Boolean(track));
         if (this._directionSends(answerDirection)) {
@@ -376,6 +425,7 @@ class SimpleP2P {
             await transceiver.sender.replaceTrack(null);
         }
         transceiver.direction = answerDirection;
+        await this._configureSender(transceiver.sender, kind);
     }
 
     // ─────────────────────────────────────
