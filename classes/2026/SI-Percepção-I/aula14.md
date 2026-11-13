@@ -1,0 +1,6 @@
+{
+  "format": "staticrypt-markdown",
+  "version": 1,
+  "staticryptSaltUniqueVariableName": "ebdd72c6a254ac36738821cc3139e2e5",
+  "staticryptEncryptedMsgUniqueVariableName": "6c8b67b95ba0a48576f7cabbfe72504d79a3e7027a529f3bffd2fcbeaffbe9e59cadb3791bbed19d8fc796a0fdd15cce4b0f67aa30530b4c8849443631e6fbfac64d975f7177665cc749189c18021e78cd9356336fa4bcdb6295db33cbe62eba749c24d71c05075bdfb196efe5586a4aa2a96eee0371e2c1c4b40b5690306f471aa93a09167043a671c1aad9cf5561028b5461e1dd3dc048d1a01fc0c814e01355f0d3ddbbda8ea2cdd0966e9cab05f6b5f3e67b8296f0e67bf7470995dd487c"
+}
