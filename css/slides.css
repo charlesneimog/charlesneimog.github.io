@@ -1,0 +1,135 @@
+.reveal { background: #fff; color: #000; font-family: var(--r-main-font); }
+.reveal ul, .reveal ol { display: block; text-align: left; }
+.reveal pre, .reveal code { line-height: 2; }
+.reveal li { line-height: 1.5; }
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child { margin-top: 0; }
+.reveal .slides section.title-slide {
+    align-items: center;
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    min-height: 100%;
+    text-align: center;
+    width: 100%;
+}
+.reveal .slides section.title-slide > h1:first-child,
+.reveal .slides section.title-slide > h2:first-child { margin: 0; }
+.reveal qrcode.slide-qrcode {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+    box-sizing: border-box;
+    display: block;
+    margin: 24px auto;
+    max-width: 70vw;
+    padding: 10px;
+    width: 240px;
+}
+.reveal qrcode.slide-qrcode svg {
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: auto;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+}
+.reveal .logos {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.reveal .logos img {
+    flex-shrink: 0;
+    height: 100px;
+    margin: 0;
+    max-height: 100px;
+    object-fit: contain;
+    width: auto;
+}
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 { color: #000; }
+.mermaid { margin: 0 auto; min-height: 0; width: 100%; }
+.mermaid svg text, .mermaid svg tspan { font-family: Arial, Helvetica, sans-serif; }
+.slide-image-zoom-trigger { cursor: zoom-in; }
+.slide-image-zoom-trigger:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
+body.slide-image-zoom-open { overflow: hidden; }
+dialog.slide-image-zoom {
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    cursor: zoom-out;
+    height: 100vh;
+    height: 100dvh;
+    inset: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    overflow: hidden;
+    padding: clamp(16px, 3vw, 40px);
+    width: 100vw;
+}
+dialog.slide-image-zoom[open] { display: grid; place-items: center; }
+dialog.slide-image-zoom::backdrop {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.55);
+}
+.slide-image-zoom-image {
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    object-fit: contain;
+    width: 100%;
+}
+.slide-image-zoom-close {
+    align-items: center;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font: 32px/1 Arial, sans-serif;
+    height: 44px;
+    justify-content: center;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 44px;
+}
+.slide-image-zoom-close:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (max-width: 900px) {
+    html.slide-deck {
+        --r-block-margin: 12px;
+        --r-heading1-size: 2.4em;
+        --r-heading2-size: 1.75em;
+        --r-heading3-size: 1.3em;
+        --r-main-font-size: 24px;
+    }
+    html.slide-deck .reveal .slides section { box-sizing: border-box; padding: 24px 20px; }
+    html.slide-deck .reveal .slides section[hidden] { display: none !important; }
+    html.slide-deck .reveal .slides section.title-slide { padding: 24px; }
+    html.slide-deck .reveal li { line-height: 1.35; }
+    html.slide-deck .reveal pre, html.slide-deck .reveal code { line-height: 1.4; }
+    html.slide-deck .reveal table {
+        display: block;
+        font-size: 0.72em;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    html.slide-deck .reveal .waveform { min-width: 0; width: 100%; }
+    html.slide-deck .reveal .audio-wave-group {
+        align-items: stretch !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    html.slide-deck .reveal .audio-wave-group > * { width: 100% !important; }
+    html.slide-deck .reveal .audio-wave-wrapper { margin-bottom: 8px !important; margin-top: 8px !important; }
+    html.slide-deck .reveal .audio-wave-card { box-sizing: border-box; padding: 12px !important; width: 92% !important; }
+}

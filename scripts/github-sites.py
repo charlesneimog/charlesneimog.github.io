@@ -596,8 +596,8 @@ class RepositoryContent:
 
     sections.js + content-urls.js: music/research/blog query modals and saved slugs.
     content-seo.js binds the selected item to its canonical URL and metadata.
-    talks.js + talk-slide.js: HTML redirect or Markdown in slide.html?talk=...
-    classes.js + course.js + lesson-slide.js: password-gated course viewers.
+    talks.js + slide-viewer.js: HTML redirect or Markdown in slide.html?talk=...
+    classes.js + course.js + slide-viewer.js: password-gated course viewers.
     tools/tools.js: links are relative to the tools listing, not its JSON file.
     """
     def __init__(self, root, report, build_dir=None):
@@ -635,7 +635,7 @@ class RepositoryContent:
             if talk.get("encrypt"):
                 path = urlsplit(public_url(talk["link"], BASE_URL + "talks/")).path
                 self.protected_prefixes.add(path.rsplit("/", 1)[0] + "/" if path.endswith((".html", ".md")) else path.rstrip("/") + "/")
-        # lesson-slide.js requires an unlocked session even if listing.locked=false.
+        # The lesson mode in slide-viewer.js requires an unlocked session even if listing.locked=false.
         self.protected_prefixes.update(("/classes/course.html", "/classes/slide.html"))
         for course in self.json("classes/classes.json"):
             if course.get("path"):
@@ -748,7 +748,7 @@ class RepositoryContent:
                 markdown = target if target.endswith(".md") else public_url("slide.md", folder)
                 html_url = public_url("index.html", folder)
                 if not target.endswith(".md") and self.path(html_url):
-                    crawler.enqueue(html_url)  # talk-slide.js redirects to this HTML
+                    crawler.enqueue(html_url)  # slide-viewer.js redirects to this HTML
                 else:
                     path = self.path(markdown)
                     if path:

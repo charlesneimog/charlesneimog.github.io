@@ -297,7 +297,7 @@ For layered fragment images, Reveal's existing `r-stack` class is available:
 </div>
 ```
 
-The shared talk CSS already supplies title-slide centering, logo rows via `.logos`, Mermaid sizing, image zoom, code styling, waveform cards, and mobile adaptations. Prefer these shared capabilities over presentation-specific CSS. If a broadly reusable improvement is needed, update `css/talks/my-style.css`, `css/code-highlight.css`, or `css/slide-transitions.css` and test existing decks. Presentation-specific styles belong under `css/talks/<presentation>/` only when truly specific.
+The shared slide CSS already supplies title-slide centering, logo rows via `.logos`, Mermaid sizing, image zoom, waveform cards, and mobile adaptations for both talks and classes. Prefer these shared capabilities over presentation-specific CSS. If a broadly reusable slide improvement is needed, update `css/slides.css`, `css/code-highlight.css`, or `css/slide-transitions.css` and test both viewers. Talk-only and class-only rules belong in `css/talks/my-style.css` and `css/classes/my-style.css`, respectively. Presentation-specific styles belong under `css/talks/<presentation>/` only when truly specific.
 
 ## Runtime capabilities and limits
 
@@ -315,6 +315,8 @@ The Markdown talk runtime currently provides:
 - Relative URL rebasing for media and links.
 - Automatic document title from the first rendered heading.
 - Optional StatiCrypt protection.
+
+Talks and class lessons share `js/slide-viewer.js` for Markdown rendering, Reveal initialization, responsive sizing, URL rebasing, and active-slide enhancements. Keep catalog routing and access control mode-specific, but do not create separate slide-rendering controllers.
 
 The Markdown runtime does not implement YAML front matter, `---` slide splitting, nested Reveal vertical slides, speaker notes, per-slide background attributes, or arbitrary executable scripts. Do not promise these features. Use a standalone HTML deck or extend the shared runtime with tests when a task truly requires one of them.
 

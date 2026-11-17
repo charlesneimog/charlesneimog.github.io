@@ -62,8 +62,8 @@ These adapters are based on the actual JavaScript loaded by the pages:
 | `json/articles.json` | `js/sections.js`, `createResearchPage` | `/?research=<slug>`; images, `link` and `paper` |
 | `json/blog.json` | `js/sections.js`, `createBlogPage` | `/?blog=<slug>`; `file` is rendered Markdown, **not** its public page URL |
 | `json/software.json` | `js/sections.js`, `addSoftwares` | Homepage card images (`img`, `imgDark`) and project `link` |
-| `talks/talks.json` | `js/talks.js`, `js/talk-slide.js` | `slide.html?talk=<path>` for Markdown; viewer redirects to existing `index.html` unless `.md` is explicitly requested |
-| `classes/classes.json` | `js/classes.js`, `js/course.js`, `js/lesson-slide.js` | Course/lesson viewers require an unlocked session and are excluded, along with protected sources |
+| `talks/talks.json` | `js/talks.js`, `js/slide-viewer.js` | `slide.html?talk=<path>` for Markdown; viewer redirects to existing `index.html` unless `.md` is explicitly requested |
+| `classes/classes.json` | `js/classes.js`, `js/course.js`, `js/slide-viewer.js` | Course/lesson viewers require an unlocked session and are excluded, along with protected sources |
 | `tools/tools.json` | `tools/tools.js` | `link` resolves from `/tools/`, not from the JSON file |
 
 Music, research and blog keep the existing query URLs and dialogs. Each item

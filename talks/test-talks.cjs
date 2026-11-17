@@ -8,6 +8,15 @@ const marked = require("../js/marked.umd.js");
 const origin = "https://example.test";
 const markdown = '# A presentation\n\nAn introduction.\n\n## Images\n\n![Picture](picture.png){width="50%"}\n\n## Links\n\n[Read more](notes.pdf){target="_blank"}\n';
 
+test("talks and lessons load the same slide runtime and base styles", () => {
+    for (const viewerFile of ["slide.html", "../classes/slide.html"]) {
+        const html = readFileSync(path.join(__dirname, viewerFile), "utf8");
+        assert.match(html, /src="\/js\/slide-viewer\.js\?v=1"/);
+        assert.match(html, /href="\/css\/slides\.css\?v=1"/);
+        assert.doesNotMatch(html, /(?:talk|lesson)-slide\.js/);
+    }
+});
+
 function element(attributes = {}) {
     return {
         attributes: { ...attributes },
@@ -78,7 +87,7 @@ function viewer(talk, { files = {}, mobile = false, hash = "", printPdf = false 
             on(name, handler) { events[name] = handler; }
         },
     });
-    for (const file of ["../js/markdown2slide.js", "../js/talk-slide.js"]) {
+    for (const file of ["../js/markdown2slide.js", "../js/slide-viewer.js"]) {
         vm.runInContext(readFileSync(path.join(__dirname, file), "utf8"), context, { filename: file });
     }
     return { context, requests, sections, status, events, qrTargets, qrOptions };
@@ -484,7 +493,7 @@ test("relative media resolve from the presentation folder", () => {
         element({ src: "data:image/svg+xml;base64,AAAA" }),
     ];
     context.document.querySelectorAll = () => nodes;
-    context.rebaseTalkLinks(new URL(`${origin}/talks/example/slide.md`));
+    context.rebaseSlideLinks(new URL(`${origin}/talks/example/slide.md`));
     assert.equal(nodes[0].attributes.src, `${origin}/talks/example/image.png`);
     assert.equal(nodes[1].attributes.href, `${origin}/talks/notes.pdf`);
     assert.equal(nodes[2].attributes.src, `${origin}/images/shared.png`);

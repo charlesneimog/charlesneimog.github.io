@@ -117,9 +117,9 @@ function lessonViewer(codec, payload, storedKey = null) {
         mermaid: { initialize() {} },
     };
     vm.runInContext(
-        readFileSync(path.join(__dirname, "../js/lesson-slide.js"), "utf8"),
+        readFileSync(path.join(__dirname, "../js/slide-viewer.js"), "utf8"),
         context,
-        { filename: "lesson-slide.js" },
+        { filename: "slide-viewer.js" },
     );
     return context;
 }

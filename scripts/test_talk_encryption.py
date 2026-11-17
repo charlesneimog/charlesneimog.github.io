@@ -51,7 +51,7 @@ class TalkEncryptionTests(unittest.TestCase):
         self.assertEqual(encryption.read_markdown(markdown, PASSWORD, STATICRYPT), self.source)
         html = self.decrypt_html()
         self.assertEqual(json.loads(encryption.MARKDOWN_BLOCK.search(html)[1]), self.source)
-        self.assertIn('src="/js/talk-slide.js?v=4"', html)
+        self.assertIn('src="/js/slide-viewer.js?v=1"', html)
         self.assertIn('href="/css/reveals.css"', html)
         for public_file in self.root.rglob("*"):
             if public_file.is_file():
