@@ -327,6 +327,27 @@ class TalkEncryptionTests(unittest.TestCase):
                 encryption.main()
         self.assertEqual(self.snapshot(), before)
 
+    def test_cli_decrypt_replaces_files_in_place_without_changing_catalog(self):
+        markdown = self.folder / "slide.md"
+        markdown.write_text(self.source)
+        self.protect()
+        catalog = self.root / "talks/talks.json"
+        catalog_source = json.dumps([self.talk], indent=3) + "\n"
+        catalog.write_text(catalog_source)
+        helper = self.root / "scripts/staticrypt_payload.cjs"
+        helper.parent.mkdir()
+        shutil.copyfile(ROOT / "scripts/staticrypt_payload.cjs", helper)
+
+        with mock.patch.object(encryption, "SITE_ROOT", self.root), mock.patch.dict(
+            os.environ, {"STATICRYPT_PASSWORD": PASSWORD}
+        ), mock.patch("sys.argv", ["encrypt.py", "--decrypt", "--no-tailwind"]):
+            encryption.main()
+
+        self.assertEqual(markdown.read_text(), self.source)
+        self.assertIn("Confidential presentation", (self.folder / "index.html").read_text())
+        self.assertIsNone(encryption.find_html_payload(self.folder / "index.html", self.root)[1])
+        self.assertEqual(catalog.read_text(), catalog_source)
+
 
 if __name__ == "__main__":
     unittest.main()

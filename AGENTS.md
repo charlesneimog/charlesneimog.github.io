@@ -339,6 +339,14 @@ It prompts once for the presentation password. Automation may use `STATICRYPT_PA
 STATICRYPT_PASSWORD='…' python3 talks/encrypt.py --no-tailwind
 ```
 
+Use `--decrypt` to restore every cataloged presentation in place without changing `talks.json`:
+
+```sh
+python3 talks/encrypt.py --decrypt
+```
+
+The plaintext files replace their encrypted counterparts at the same paths. Because the catalog remains unchanged, a later run without `--decrypt` reapplies each entry's configured `encrypt` state.
+
 Requirements are the `staticrypt` executable and, unless `--no-tailwind` is supplied, the Tailwind CSS CLI.
 
 Never hand-edit ciphertext JSON in an encrypted `slide.md` or the generated `index.html`/locked JS assets. To edit an existing protected deck safely:

@@ -1,4 +1,4 @@
-"""Apply the encryption state configured in talks.json using StatiCrypt."""
+"""Apply the configured encryption state, or decrypt every talk in place."""
 
 import argparse
 import getpass
@@ -360,6 +360,10 @@ def protect_presentation(talk, root, password, staticrypt):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--decrypt", action="store_true",
+        help="Decrypt every cataloged presentation in place without changing talks.json.",
+    )
     parser.add_argument("--no-tailwind", action="store_true", help="Skip rebuilding the shared Tailwind stylesheet.")
     args = parser.parse_args()
     staticrypt = shutil.which("staticrypt")
@@ -372,8 +376,9 @@ def main():
     obsolete = set()
     messages = []
     for talk in talks:
+        requested = {**talk, "encrypt": False} if args.decrypt else talk
         try:
-            prepared, unused = prepare_presentation(talk, SITE_ROOT, password, staticrypt)
+            prepared, unused = prepare_presentation(requested, SITE_ROOT, password, staticrypt)
         except (RuntimeError, ValueError, OSError) as error:
             raise RuntimeError(f'Could not process {talk["link"]}: {error}') from error
         for filename, content in prepared.items():
@@ -382,7 +387,7 @@ def main():
             changes[filename] = content
         obsolete.update(unused)
         if prepared:
-            action = "Encrypted" if talk.get("encrypt", False) else "Decrypted"
+            action = "Encrypted" if requested.get("encrypt", False) else "Decrypted"
             messages.append(f'{action} {talk["link"]}')
     replace_files(changes)
     remove_obsolete_assets(obsolete, SITE_ROOT, password, staticrypt)

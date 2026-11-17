@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <style>
+            h1 {
+                text-align: center;
+            }
+
+            .upload {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 400px;
+                height: 180px;
+                margin: 30px auto;
+                border: 2px dashed #999;
+                border-radius: 8px;
+                cursor: pointer;
+                background: #f5f5f5;
+            }
+
+            .upload:hover {
+                background: #e5e5e5;
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Format patch size</h1>
+
+        <label class="upload" ondragover="event.preventDefault()" ondrop="dropFiles(event)">
+            Drop files here or click to upload
+            <input type="file" multiple onchange="formatPatch(this.files)" />
+        </label>
+
+        <script src="main.js"></script>
+    </body>
+</html>

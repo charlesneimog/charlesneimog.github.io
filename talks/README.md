@@ -101,6 +101,8 @@ For Markdown presentations, both the HTML viewer and `slide.md` are encrypted. T
 
 Set `encrypt` to `false` and run the same command to restore plaintext HTML and Markdown. The script restores the original HTML from inline or extracted StatiCrypt payloads and removes obsolete encryption assets only when no pages or resources still reference them. Shared resources are retained.
 
+To decrypt every cataloged presentation in place without first changing `talks.json`, run `python3 talks/encrypt.py --decrypt`. Each plaintext file replaces its encrypted counterpart at the same path, while the catalog remains unchanged. A later run without `--decrypt` reapplies the states configured in `talks.json`.
+
 `encrypt` controls encryption and the access labels shown on the talks page. It is the desired state and is never changed by the script. Unchanged files are left alone; updated Markdown is embedded when rebuilding an encrypted viewer. Missing Markdown can be recovered from an existing embedded presentation during encryption.
 
 All presentations are prepared before any files are replaced. Incorrect passwords or malformed payloads leave the original files unchanged. Replacements use temporary files and roll back if a filesystem replacement fails. Use `--no-tailwind` to skip the shared stylesheet build.
